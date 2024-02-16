@@ -1,0 +1,3 @@
+const SEARCH_PRODUCT = 'SEARCH_PRODUCT';
+
+export { SEARCH_PRODUCT };

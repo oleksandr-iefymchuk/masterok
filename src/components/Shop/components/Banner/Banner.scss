@@ -1,0 +1,78 @@
+.bannersWrapper {
+  background-color: #212526;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  width: 100%;
+
+  .promoBanners {
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    grid-template-rows: repeat(2, minmax(100px, 230px));
+    grid-gap: 15px;
+    grid-template-areas:
+      'tools tools stock novelty'
+      'tools tools stock popular';
+
+    .bannerBlock {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+      position: relative;
+
+      &.tools {
+        grid-area: tools;
+      }
+
+      &.stock {
+        grid-area: stock;
+      }
+
+      &.novelty {
+        grid-area: novelty;
+      }
+
+      &.popular {
+        grid-area: popular;
+      }
+
+      .bannerTitle {
+        position: absolute;
+        right: 5%;
+        top: 4%;
+        transform: translate(-5%, -4%);
+        color: #fff;
+        font-weight: 600;
+        letter-spacing: 2px;
+        -webkit-text-stroke: 1px black;
+      }
+
+      .banner {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .buttonBlock {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .bannersWrapper {
+    .promoBanners {
+      grid-template-areas: none;
+      grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+      grid-template-rows: minmax(auto, auto);
+
+      .bannerBlock {
+        grid-column: unset !important;
+        grid-row: unset !important;
+      }
+    }
+  }
+}
