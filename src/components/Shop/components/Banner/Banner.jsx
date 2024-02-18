@@ -13,22 +13,22 @@ const Banner = () => {
         <div className="bannerBlock tools">
           <h2 className="bannerTitle">ТОП-товари</h2>
           <img className="banner" src={banner} alt="banner" />
-          <Button src={arrow} />
+          <Button buttonBlockClassName="bannerBtnWrap" src={arrow} />
         </div>
         <div className="bannerBlock stock">
           <h2 className="bannerTitle">Акції</h2>
           <img className="banner" src={banner2} alt="banner" />
-          <Button src={arrow} />
+          <Button buttonBlockClassName="bannerBtnWrap" src={arrow} />
         </div>
         <div className="bannerBlock novelty">
           <h2 className="bannerTitle">Новинки</h2>
           <img className="banner" src={banner3} alt="banner" />
-          <Button src={arrow} />
+          <Button buttonBlockClassName="bannerBtnWrap" src={arrow} />
         </div>
         <div className="bannerBlock popular">
           <h2 className="bannerTitle">Популярне</h2>
           <img className="banner" src={banner4} alt="banner" />
-          <Button src={arrow} />
+          <Button buttonBlockClassName="bannerBtnWrap" src={arrow} />
         </div>
       </div>
     </div>

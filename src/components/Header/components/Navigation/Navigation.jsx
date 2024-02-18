@@ -39,7 +39,7 @@ const Navigation = () => {
     <div className="navWrapper">
       <div className="controlPanel">
         <ButtonWrapper
-          className="catalogButton"
+          buttonClassName="catalogButton"
           src={burger}
           buttonText={BUTTON_CATALOG}
           onClick={() => console.log('Каталог товарів')}
@@ -60,7 +60,7 @@ const Navigation = () => {
             onChangeInput={handleSearchChange}
           />
           <ButtonWrapper
-            className="searchButton"
+            buttonClassName="searchButton"
             buttonText={BUTTON_SEARCH}
             onClick={handleSearchSubmit}
           />

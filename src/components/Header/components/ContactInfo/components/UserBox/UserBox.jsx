@@ -9,27 +9,34 @@ import favorites from '../../../../../../assets/favorites.svg';
 import basket from '../../../../../../assets/basket.svg';
 
 const UserBox = () => {
-  const basketItems = useSelector((state) => state.basket.basketItems);
-  console.log('basketItems:', basketItems);
+  const basketProducts = useSelector((store) => store.user.basketProducts);
+  const favoriteProducts = useSelector((store) => store.user.favoriteProducts);
+
   const navigate = useNavigate();
   const navigationBasket = () => navigate('/basket');
+  const navigationFavorites = () => navigate('/favorites');
 
   return (
     <div className="userBox">
       <ButtonWrapper
+        buttonBlockClassName="buttonBlock"
+        imgClassName="favoritesImg"
         src={favorites}
         alt="Обране"
-        onClick={() => console.log('Favorites')}
+        value={favoriteProducts.length}
+        onClick={navigationFavorites}
       />
       <ButtonWrapper
+        buttonBlockClassName="buttonBlock"
         src={login}
         alt="Логін"
         onClick={() => console.log('Login')}
       />
       <ButtonWrapper
+        buttonBlockClassName="buttonBlock"
         src={basket}
         alt="Кошик"
-        value={basketItems.length}
+        value={basketProducts.length}
         onClick={navigationBasket}
       />
     </div>

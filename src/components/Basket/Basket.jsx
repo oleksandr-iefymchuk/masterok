@@ -1,16 +1,15 @@
 import { useSelector } from 'react-redux';
 import './Basket.scss';
+import ProductList from '../Shop/components/ProductList/ProductList';
 
 const Basket = () => {
-  const searchValue = useSelector((state) => state.basket.basketItems);
-  console.log('searchValue:', searchValue);
+  const basketProducts = useSelector((store) => store.user.basketProducts);
+  console.log('basketProducts:', basketProducts);
 
   return (
-    <div className="cartWrapper">
+    <div className="basketWrap">
       <h2>Кошик</h2>
-      <div className="heading">
-        <div className="badge">1</div>
-      </div>
+      <ProductList products={basketProducts} />
       <div></div>
     </div>
   );

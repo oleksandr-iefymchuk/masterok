@@ -1,34 +1,30 @@
-.buttonBlock {
-  position: relative;
+button {
+  cursor: pointer;
+  background-color: #3b3b3b;
+  border: none;
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  button {
-    cursor: pointer;
-    background-color: #3b3b3b;
-    border: none;
-    width: 60px;
-    height: 60px;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &:hover {
-      background-color: #f05a00;
-      transition: 0.3s;
-    }
-
-    img {
-      width: 25px;
-    }
-  }
-
-  span {
+  &:hover {
     background-color: #f05a00;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    position: absolute;
-    top: 0;
-    right: 0;
+    transition: 0.3s;
   }
+
+  img {
+    width: 25px;
+  }
+}
+
+span {
+  background-color: #f05a00;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
 }

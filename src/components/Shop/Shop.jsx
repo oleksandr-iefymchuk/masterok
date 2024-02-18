@@ -6,9 +6,9 @@ import { mockedProductsList } from '../../constants';
 import arrowPrev from '../../assets/arrow-prev.svg';
 import arrowNext from '../../assets/arrow-next.svg';
 
-import CardProduct from './components/CardProduct/CardProduct';
 import Banner from './components/Banner/Banner';
 import ButtonWrapper from '../../common/Button/Button';
+import ProductList from './components/ProductList/ProductList';
 
 const Shop = () => {
   const categories = [
@@ -72,35 +72,25 @@ const Shop = () => {
                 <div className="categoryTitle">
                   <h2>{category}</h2>
                   <ButtonWrapper
-                    className="categoryButtons"
+                    buttonClassName="categoryButtons"
                     disabled={currentIndex === 0}
                     onClick={() => setCurrentIndex(category, currentIndex - 2)}
                     src={arrowPrev}
                     alt="Попередня сторінка"
                   />
                   <ButtonWrapper
-                    className="categoryButtons"
+                    buttonClassName="categoryButtons"
                     disabled={currentIndex + 2 >= categoryProducts.length}
                     onClick={() => setCurrentIndex(category, currentIndex + 2)}
                     src={arrowNext}
                     alt="Наступна сторінка"
                   />
                 </div>
-                <div className="products">
-                  {displayedProducts.map((product) => (
-                    <CardProduct key={product.id} {...product} />
-                  ))}
-                </div>
+                <ProductList products={displayedProducts} />
               </div>
             );
           })}
-        {!searchProduct && (
-          <div className="products">
-            {filteredProducts.map((product) => (
-              <CardProduct key={product.id} {...product} />
-            ))}
-          </div>
-        )}
+        {!searchProduct && <ProductList products={filteredProducts} />}
       </div>
     </div>
   );

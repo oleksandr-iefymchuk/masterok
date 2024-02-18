@@ -3,20 +3,21 @@ import PropTypes from 'prop-types';
 
 const ButtonWrapper = ({
   disabled,
-  className,
+  buttonBlockClassName,
+  buttonClassName,
+  imgClassName,
   type,
   buttonText,
   onClick,
-  imgClassName,
   src,
   alt,
   value,
 }) => {
   return (
-    <div className="buttonBlock">
+    <div className={buttonBlockClassName}>
       <button
         disabled={disabled}
-        className={className}
+        className={buttonClassName}
         type={type}
         onClick={onClick}
       >
@@ -30,11 +31,12 @@ const ButtonWrapper = ({
 
 ButtonWrapper.propTypes = {
   disabled: PropTypes.bool,
-  className: PropTypes.string,
+  buttonBlockClassName: PropTypes.string,
+  buttonClassName: PropTypes.string,
+  imgClassName: PropTypes.string,
   type: PropTypes.string,
   buttonText: PropTypes.string,
   onClick: PropTypes.func,
-  imgClassName: PropTypes.string,
   src: PropTypes.string,
   alt: PropTypes.string,
   value: PropTypes.number,

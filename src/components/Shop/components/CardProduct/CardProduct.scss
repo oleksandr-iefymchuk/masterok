@@ -22,6 +22,26 @@
     max-height: 180px;
   }
 
+  .favoritesBtnWrap {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+
+    .favoritesButton {
+      width: auto;
+      height: auto;
+      border-radius: 50%;
+      background-color: transparent;
+
+      img {
+        &:hover {
+          filter: brightness(0) saturate(100%) invert(36%) sepia(98%)
+            saturate(2013%) hue-rotate(4deg) brightness(97%) contrast(101%);
+        }
+      }
+    }
+  }
+
   .cardProductInfo {
     text-align: left;
     display: flex;
@@ -29,23 +49,24 @@
     justify-content: space-between;
 
     .cardProductPrice {
+      position: relative;
       margin-top: 5px;
       font-weight: 700;
+
+      .buyButton {
+        width: 224px;
+        height: 28px;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%, 0);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
     }
   }
 
-  .buyButton {
-    width: 224px;
-    height: 28px;
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translate(-50%, 0);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  &:hover .buyButton {
+  &:hover .cardProductPrice .buyButton {
     opacity: 1;
   }
 }

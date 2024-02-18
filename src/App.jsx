@@ -11,6 +11,7 @@ import Novelty from './components/Shop/components/Novelty/Novelty';
 import DeliveryInfo from './components/DeliveryInfo/DeliveryInfo';
 import CardInfo from './components/Shop/components/CardInfo/CardInfo';
 import Basket from './components/Basket/Basket';
+import Favorites from './components/Favorites/Favorites';
 import Footer from './components/Footer/Footer';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/registration" element={<Registration />} />
             <Route path="/login" element={<Login />} />
             <Route path="/basket" element={<Basket />} />
+            <Route path="/favorites" element={<Favorites />} />
             <Route path="/" element={<Shop />} />
             <Route path="/:courseId" element={<CardInfo />} />
             <Route path="/about" element={<About />}></Route>

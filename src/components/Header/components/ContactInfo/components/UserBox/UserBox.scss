@@ -1,4 +1,12 @@
 .userBox {
   background-color: #3b3b3b;
   display: flex;
+
+  .buttonBlock {
+    position: relative;
+
+    .favoritesImg {
+      filter: invert(100%);
+    }
+  }
 }
