@@ -32,13 +32,6 @@
       height: auto;
       border-radius: 50%;
       background-color: transparent;
-
-      img {
-        &:hover {
-          filter: brightness(0) saturate(100%) invert(36%) sepia(98%)
-            saturate(2013%) hue-rotate(4deg) brightness(97%) contrast(101%);
-        }
-      }
     }
   }
 

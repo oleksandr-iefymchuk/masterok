@@ -9,8 +9,6 @@ import {
 
 import './CardProduct.scss';
 import ButtonWrapper from '../../../../common/Button/Button';
-import favoritesImg from '../../../../assets/favorites.svg';
-import favoritesFilledImg from '../../../../assets/favoritesFilled.svg';
 
 const CardProduct = ({ id, image, alt, title, price, availability }) => {
   const dispatch = useDispatch();
@@ -36,7 +34,8 @@ const CardProduct = ({ id, image, alt, title, price, availability }) => {
       <ButtonWrapper
         buttonBlockClassName="favoritesBtnWrap"
         buttonClassName="favoritesButton"
-        src={isFavorite ? favoritesFilledImg : favoritesImg}
+        icon={isFavorite ? 'favoritesFilled' : 'favorites'}
+        svgColor="#f05a00"
         onClick={handleAddToFavotites}
       />
       <Link to={`/${id}`}>

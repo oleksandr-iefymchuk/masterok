@@ -3,10 +3,7 @@ import { useSelector } from 'react-redux';
 
 import './UserBox.scss';
 
-import ButtonWrapper from '../../../../../../common/Button/Button';
-import login from '../../../../../../assets/login.svg';
-import favorites from '../../../../../../assets/favorites.svg';
-import basket from '../../../../../../assets/basket.svg';
+import Button from '../../../../../../common/Button/Button';
 
 const UserBox = () => {
   const basketProducts = useSelector((store) => store.user.basketProducts);
@@ -18,24 +15,21 @@ const UserBox = () => {
 
   return (
     <div className="userBox">
-      <ButtonWrapper
+      <Button
         buttonBlockClassName="buttonBlock"
         imgClassName="favoritesImg"
-        src={favorites}
-        alt="Обране"
+        icon="favorites"
         value={favoriteProducts.length}
         onClick={navigationFavorites}
       />
-      <ButtonWrapper
+      <Button
         buttonBlockClassName="buttonBlock"
-        src={login}
-        alt="Логін"
+        icon="user"
         onClick={() => console.log('Login')}
       />
-      <ButtonWrapper
+      <Button
         buttonBlockClassName="buttonBlock"
-        src={basket}
-        alt="Кошик"
+        icon="basket"
         value={basketProducts.length}
         onClick={navigationBasket}
       />

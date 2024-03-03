@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './Navigation.scss';
-import burger from '../../../../assets/burger.svg';
 
 import InputWrapper from '../../../../common/Input/Input';
 import ButtonWrapper from '../../../../common/Button/Button';
@@ -40,7 +39,7 @@ const Navigation = () => {
       <div className="controlPanel">
         <ButtonWrapper
           buttonClassName="catalogButton"
-          src={burger}
+          icon="burger"
           buttonText={BUTTON_CATALOG}
           onClick={() => console.log('Каталог товарів')}
         />

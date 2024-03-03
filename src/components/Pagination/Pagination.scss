@@ -1,0 +1,13 @@
+.pagination {
+  display: flex;
+  margin-top: 20px;
+
+  .paginationButtons {
+    background-color: transparent;
+    color: #000;
+  }
+
+  .paginationButtons.active {
+    background-color: #f05a00;
+  }
+}

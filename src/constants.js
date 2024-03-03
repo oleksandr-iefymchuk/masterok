@@ -157,3 +157,8 @@ export const navbarLinks = [
     name: 'Умови оплати та доставки',
   },
 ];
+
+export const svgOption = {
+  DEFAULT_SIZE: 25,
+  DEFAULT_COLOR: '#ffffff',
+};

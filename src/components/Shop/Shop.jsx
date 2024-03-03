@@ -3,8 +3,6 @@ import { useSelector } from 'react-redux';
 
 import './Shop.scss';
 import { mockedProductsList } from '../../constants';
-import arrowPrev from '../../assets/arrow-prev.svg';
-import arrowNext from '../../assets/arrow-next.svg';
 
 import Banner from './components/Banner/Banner';
 import ButtonWrapper from '../../common/Button/Button';
@@ -75,15 +73,13 @@ const Shop = () => {
                     buttonClassName="categoryButtons"
                     disabled={currentIndex === 0}
                     onClick={() => setCurrentIndex(category, currentIndex - 2)}
-                    src={arrowPrev}
-                    alt="Попередня сторінка"
+                    icon="arrowPrev"
                   />
                   <ButtonWrapper
                     buttonClassName="categoryButtons"
                     disabled={currentIndex + 2 >= categoryProducts.length}
                     onClick={() => setCurrentIndex(category, currentIndex + 2)}
-                    src={arrowNext}
-                    alt="Наступна сторінка"
+                    icon="arrowNext"
                   />
                 </div>
                 <ProductList products={displayedProducts} />
