@@ -8,19 +8,27 @@ import ButtonWrapper from '../../common/Button/Button';
 import Pagination from '../Pagination/Pagination';
 
 const Favorites = () => {
-  const favoriteItems = useSelector((state) => state.user.favoriteProducts);
+  const favoriteItemsId = useSelector((state) => state.user.favoriteProducts);
+  const allProducts = useSelector((state) => state.products);
+
+  const favoriteProducts = favoriteItemsId.map((favoriteItem) => {
+    return allProducts.find((product) => product.id === favoriteItem.id);
+  });
 
   const navigate = useNavigate();
   const returnCourseList = () => {
-    navigate('/');
+    navigate('/masterok');
   };
 
   const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = favoriteItems.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = Math.ceil(favoriteItems.length / itemsPerPage);
+  const currentItems = favoriteProducts.slice(
+    indexOfFirstItem,
+    indexOfLastItem,
+  );
+  const totalPages = Math.ceil(favoriteProducts.length / itemsPerPage);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -38,7 +46,7 @@ const Favorites = () => {
       />
       <h2>Список бажань</h2>
       <p className="quantityProducts">
-        Кількість товарів: {favoriteItems.length}{' '}
+        Кількість товарів: {favoriteProducts.length}{' '}
       </p>
       <ProductList className="products" products={currentItems} />
       <Pagination

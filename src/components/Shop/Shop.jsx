@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import './Shop.scss';
-import { mockedProductsList } from '../../constants';
 
 import Banner from './components/Banner/Banner';
 import ButtonWrapper from '../../common/Button/Button';
@@ -17,7 +16,9 @@ const Shop = () => {
   ];
 
   const searchValue = useSelector((state) => state.search.searchValue);
-  const [products] = useState(mockedProductsList);
+  const products = useSelector((state) => state.products);
+  console.log('products:', products);
+
   const [categoryIndexes, setCategoryIndexes] = useState({});
   const [filteredProducts, setFilteredProducts] = useState(products);
 

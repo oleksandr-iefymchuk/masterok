@@ -33,7 +33,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
                 ? 'paginationButtons active'
                 : 'paginationButtons'
             }
-            buttonText={pageNumber}
+            buttonText={pageNumber.toString()}
             onClick={() => handlePageChange(pageNumber)}
           />
         );

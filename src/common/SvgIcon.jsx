@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { svgOption } from '../constants';
+import sprite from '../assets/sprite.svg';
 
 const { DEFAULT_SIZE, DEFAULT_COLOR } = svgOption;
 
@@ -11,7 +12,7 @@ const SvgIcon = ({
 }) => {
   return (
     <svg stroke={color} fill={color} width={width} height={height}>
-      <use xlinkHref={`/src/assets/sprite.svg#${name}`} />
+      <use xlinkHref={`${sprite}#${name}`} />
     </svg>
   );
 };

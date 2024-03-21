@@ -16,25 +16,47 @@ const ButtonWrapper = ({
   value,
 }) => {
   return (
-    <div className={buttonBlockClassName}>
-      <button
-        disabled={disabled}
-        className={buttonClassName}
-        type={type}
-        onClick={onClick}
-      >
-        {icon && (
-          <SvgIcon
-            name={icon}
-            color={svgColor}
-            width={svgWidth}
-            height={svgHeight}
-          />
-        )}
-        {buttonText}
-      </button>
-      {value > 0 && <span>{value}</span>}
-    </div>
+    <>
+      {buttonBlockClassName ? (
+        <div className={buttonBlockClassName}>
+          <button
+            disabled={disabled}
+            className={buttonClassName}
+            type={type}
+            onClick={onClick}
+          >
+            {icon && (
+              <SvgIcon
+                name={icon}
+                color={svgColor}
+                width={svgWidth}
+                height={svgHeight}
+              />
+            )}
+            {buttonText}
+            {value > 0 && <span>{value}</span>}
+          </button>
+        </div>
+      ) : (
+        <button
+          disabled={disabled}
+          className={buttonClassName}
+          type={type}
+          onClick={onClick}
+        >
+          {icon && (
+            <SvgIcon
+              name={icon}
+              color={svgColor}
+              width={svgWidth}
+              height={svgHeight}
+            />
+          )}
+          {buttonText}
+          {value > 0 && <span>{value}</span>}
+        </button>
+      )}
+    </>
   );
 };
 

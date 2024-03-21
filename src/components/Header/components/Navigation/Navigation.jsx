@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import './Navigation.scss';
+import { useMediaQuery } from 'react-responsive';
+import { Link } from 'react-router-dom';
 
 import InputWrapper from '../../../../common/Input/Input';
 import ButtonWrapper from '../../../../common/Button/Button';
-import NavBarItem from './components/NavBarItem/NavBarItem';
 
 import {
   PLACEHOLDER_LABELS,
@@ -17,6 +18,7 @@ import { searchProduct } from '../../../../store/searchProduct/actionCreators';
 const Navigation = () => {
   const { SEARCH_PLACEHOLDER } = PLACEHOLDER_LABELS;
   const { BUTTON_SEARCH, BUTTON_CATALOG } = BUTTON_LABELS;
+  const isMobileDevice = useMediaQuery({ maxWidth: 768 });
 
   const dispatch = useDispatch();
   const [searchValue, setSearchValue] = useState('');
@@ -40,14 +42,16 @@ const Navigation = () => {
         <ButtonWrapper
           buttonClassName="catalogButton"
           icon="burger"
-          buttonText={BUTTON_CATALOG}
+          buttonText={!isMobileDevice ? BUTTON_CATALOG : ''}
           onClick={() => console.log('Каталог товарів')}
         />
 
         <nav className="navBar">
           <ul>
-            {navbarLinks.map((item) => (
-              <NavBarItem key={item.link} {...item} />
+            {navbarLinks.map(({ link, name }) => (
+              <li key={link}>
+                <Link to={link}>{name}</Link>
+              </li>
             ))}
           </ul>
         </nav>

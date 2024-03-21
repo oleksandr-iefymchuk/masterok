@@ -36,3 +36,50 @@
     }
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .shopWrapper {
+    .productsList {
+      width: 100%;
+
+      .productCategory {
+        width: 100%;
+
+        .categoryTitle {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .products {
+          width: 100%;
+          justify-content: center;
+          gap: 5px;
+
+          .cardProduct {
+            width: 170px;
+            height: 345px;
+            margin: 10px 0 0 0;
+            padding: 7px;
+
+            a {
+              font-size: 9px;
+            }
+
+            .favoritesBtnWrap {
+              right: 3%;
+            }
+
+            .cardProductInfo {
+              font-size: 11px;
+
+              // .buyButton {
+              //   width: 160px;
+              //   height: 24px;
+              // }
+            }
+          }
+        }
+      }
+    }
+  }
+}

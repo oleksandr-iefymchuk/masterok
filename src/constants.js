@@ -18,7 +18,7 @@ export const mockedProductsList = [
     alt: "Фарба інтер'єрна акрилова мийна TRIORA 1.4 кг Біла",
     title: "Фарба інтер'єрна акрилова мийна TRIORA 1.4 кг Біла",
     price: 137,
-    availability: 'В наявності',
+    quantity: 2,
     category: 'Фарби, лаки, клеї',
   },
   {
@@ -27,7 +27,7 @@ export const mockedProductsList = [
     alt: 'Фарба для стель і стін Ruta White 1.4 кг Біла',
     title: 'Фарба для стель і стін Ruta White 1.4 кг Біла',
     price: 90,
-    availability: 'В наявності',
+    quantity: 0,
     category: 'Фарби, лаки, клеї',
   },
   {
@@ -36,7 +36,7 @@ export const mockedProductsList = [
     alt: 'Фарба гумова структурна РабберФлекс SkyLine Біла 1.4 кг',
     title: 'Фарба гумова структурна РабберФлекс SkyLine Біла 1.4 кг',
     price: 216,
-    availability: 'В наявності',
+    quantity: 1,
     category: 'Фарби, лаки, клеї',
   },
   {
@@ -45,7 +45,7 @@ export const mockedProductsList = [
     alt: 'Набір ручних інструментів WMC TOOLS 100 предметів',
     title: 'Набір ручних інструментів WMC TOOLS 100 предметів',
     price: 1048,
-    availability: 'В наявності',
+    quantity: 1,
     category: 'Інструменти',
   },
   {
@@ -55,7 +55,7 @@ export const mockedProductsList = [
     title:
       'Набір інструментів Intertool Cr-V Storm 1/2" & 1/4" 100 предметів (ET-8100)',
     price: 2258,
-    availability: 'В наявності',
+    quantity: 1,
     category: 'Інструменти',
   },
   {
@@ -64,7 +64,7 @@ export const mockedProductsList = [
     alt: 'Набір інструментів WMC TOOLS 130 шт.',
     title: 'Набір інструментів WMC TOOLS 130 шт.',
     price: 859,
-    availability: 'В наявності',
+    quantity: 1,
     category: 'Інструменти',
   },
   {
@@ -73,7 +73,7 @@ export const mockedProductsList = [
     alt: 'Жилет безпеки Lavita LA 171600',
     title: 'Жилет безпеки Lavita LA 171600',
     price: 125,
-    availability: 'В наявності',
+    quantity: 1,
     category: 'Спецодяг',
   },
   {
@@ -82,7 +82,7 @@ export const mockedProductsList = [
     alt: 'Штани робочі Ardon Cool Trend 46 Синьо-чорні',
     title: 'Штани робочі Ardon Cool Trend 46 Синьо-чорні',
     price: 1093,
-    availability: 'В наявності',
+    quantity: 1,
     category: 'Спецодяг',
   },
   {
@@ -91,7 +91,7 @@ export const mockedProductsList = [
     alt: 'Куртка робоча Insight WALTER L Сіро-чорна',
     title: 'Куртка робоча Insight WALTER L Сіро-чорна',
     price: 711,
-    availability: 'В наявності',
+    quantity: 1,
     category: 'Спецодяг',
   },
   {
@@ -100,7 +100,7 @@ export const mockedProductsList = [
     alt: 'Мережевий шуруповерт Зенит Профи ЗШ-550',
     title: 'Мережевий шуруповерт Зенит Профи ЗШ-550',
     price: 1112,
-    availability: 'В наявності',
+    quantity: 1,
     category: 'Електроінструменти',
   },
   {
@@ -109,7 +109,7 @@ export const mockedProductsList = [
     alt: 'Кутова шліфмашина Metabo WEV 11-125 Quick',
     title: 'Кутова шліфмашина Metabo WEV 11-125 Quick',
     price: 4335,
-    availability: 'В наявності',
+    quantity: 1,
     category: 'Електроінструменти',
   },
   {
@@ -118,7 +118,7 @@ export const mockedProductsList = [
     alt: 'Лобзик електричний Tekhmann TJS-800 MR',
     title: 'Лобзик електричний Tekhmann TJS-800 MR',
     price: 2550,
-    availability: 'В наявності',
+    quantity: 1,
     category: 'Електроінструменти',
   },
 ];
@@ -137,23 +137,38 @@ export const BUTTON_LABELS = {
 
 export const navbarLinks = [
   {
-    link: '/',
+    link: '/masterok/',
     name: 'Головна',
   },
   {
-    link: '/about',
+    link: '/masterok/about',
     name: 'Про компанію',
   },
   {
-    link: '/stock',
+    link: '/masterok/stock',
     name: 'Акції',
   },
   {
-    link: '/novelty',
+    link: '/masterok/novelty',
     name: 'Новинки',
   },
   {
-    link: '/delivery-info',
+    link: '/masterok/delivery-info',
+    name: 'Умови оплати та доставки',
+  },
+];
+
+export const foterNavLinks = [
+  {
+    link: '/masterok/about',
+    name: 'Про компанію',
+  },
+  {
+    link: '/masterok/contacts',
+    name: 'Контакти',
+  },
+  {
+    link: '/masterok/delivery-info',
     name: 'Умови оплати та доставки',
   },
 ];

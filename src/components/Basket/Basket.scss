@@ -1,4 +1,23 @@
 .basketWrap {
-  margin: 0 auto;
+  margin: 15px auto;
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .basketList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .basketWrap {
+    .basketList {
+      width: 100%;
+    }
+  }
 }

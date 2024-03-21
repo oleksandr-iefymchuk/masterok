@@ -1,5 +1,8 @@
 import {
   ADD_TO_BASKET,
+  REMOVE_FROM_BASKET,
+  INCREASE_QUANTITY_BASKET,
+  DECREASE_QUANTITY_BASKET,
   ADD_TO_FAVORITES,
   REMOVE_FROM_FAVORITES,
 } from './actionTypes';
@@ -23,12 +26,42 @@ const userReducer = (state = userInitialState, action) => {
       return {
         ...state,
         basketProducts: existingItem
-          ? state.basketProducts.map((item) =>
-              item.id === existingItem.id
-                ? { ...item, quantity: item.quantity + 1 }
-                : item,
-            )
-          : [...state.basketProducts, { ...action.payload, quantity: 1 }],
+          ? state.basketProducts
+          : [...state.basketProducts, { ...action.payload, quantity: 0 }],
+      };
+
+    case REMOVE_FROM_BASKET:
+      return {
+        ...state,
+        basketProducts: state.basketProducts.filter(
+          (product) => product.id !== action.payload,
+        ),
+      };
+
+    case INCREASE_QUANTITY_BASKET:
+      return {
+        ...state,
+        basketProducts: state.basketProducts.map((product) =>
+          product.id === action.payload.id
+            ? {
+                ...product,
+                quantity: product.quantity + action.payload.quantity,
+              }
+            : product,
+        ),
+      };
+
+    case DECREASE_QUANTITY_BASKET:
+      return {
+        ...state,
+        basketProducts: state.basketProducts.map((product) =>
+          product.id === action.payload.id
+            ? {
+                ...product,
+                quantity: product.quantity - action.payload.quantity,
+              }
+            : product,
+        ),
       };
 
     case ADD_TO_FAVORITES:

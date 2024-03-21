@@ -3,10 +3,13 @@ import { mockedProductsList } from '../../../../constants';
 
 const CardInfo = () => {
   const { courseId } = useParams();
-
-  const { image, alt, title, price, availability } = mockedProductsList.find(
-    ({ id }) => id === courseId,
+  const cardInfo = mockedProductsList.find(
+    (product) => product.id === courseId,
   );
+  if (!cardInfo) {
+    return null;
+  }
+  const { image, alt, title, price, availability } = cardInfo;
   return (
     <section>
       <img src={image} alt={alt} />

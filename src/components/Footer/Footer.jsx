@@ -1,7 +1,21 @@
+import { Link } from 'react-router-dom';
 import './Footer.scss';
+import { foterNavLinks } from '../../constants';
 
 const Footer = () => {
-  return <div className="footerWrapper">Footer</div>;
+  return (
+    <div className="footerWrapper">
+      <nav className="footerNavBar">
+        <ul>
+          {foterNavLinks.map(({ link, name }) => (
+            <li key={link}>
+              <Link to={link}>{name}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  );
 };
 
 export default Footer;

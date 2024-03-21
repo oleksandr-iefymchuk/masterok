@@ -7,7 +7,37 @@
   .contactInfo {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
     width: 90%;
+
+    .contactIcons {
+      display: none;
+    }
+
+    .contactText {
+      display: flex;
+      flex: 1;
+      justify-content: space-evenly;
+      span {
+        color: #f05a00;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .contactInfoWrapper {
+    .contactInfo {
+      .contactIcons {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+      }
+
+      .contactText {
+        display: none;
+      }
+    }
   }
 }
