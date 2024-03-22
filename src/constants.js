@@ -135,6 +135,41 @@ export const BUTTON_LABELS = {
   BUTTON_LOGIN: 'Login',
 };
 
+export const breadcrumbLinks = [
+  {
+    link: '/masterok/',
+    name: 'Головна',
+  },
+  {
+    link: '/masterok/about',
+    name: 'Про компанію',
+  },
+  {
+    link: '/masterok/stock',
+    name: 'Акції',
+  },
+  {
+    link: '/masterok/novelty',
+    name: 'Новинки',
+  },
+  {
+    link: '/masterok/delivery-info',
+    name: 'Умови оплати та доставки',
+  },
+  {
+    link: '/masterok/basket',
+    name: 'Корзина',
+  },
+  {
+    link: '/masterok/order',
+    name: 'Оформлення замовлення',
+  },
+  {
+    link: '/masterok/favorites',
+    name: 'Список бажань',
+  },
+];
+
 export const navbarLinks = [
   {
     link: '/masterok/',

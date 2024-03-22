@@ -1,14 +1,14 @@
-import './About.scss';
+import './Stock.scss';
 import Breadcrumbs from '../../common/Breadcrumbs/Breadcrumbs';
 import { breadcrumbLinks } from '../../constants';
 
-const About = () => {
+const Stock = () => {
   return (
-    <div className="aboutWrap">
+    <div className="stockWrap">
       <Breadcrumbs links={breadcrumbLinks} />
-      <h2>About</h2>
+      <h2>Акції</h2>
     </div>
   );
 };
 
-export default About;
+export default Stock;

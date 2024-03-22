@@ -1,14 +1,15 @@
-import './About.scss';
+import './Order.scss';
+
 import Breadcrumbs from '../../common/Breadcrumbs/Breadcrumbs';
 import { breadcrumbLinks } from '../../constants';
 
-const About = () => {
+const Order = () => {
   return (
-    <div className="aboutWrap">
+    <div className="orderWrap">
       <Breadcrumbs links={breadcrumbLinks} />
-      <h2>About</h2>
+      <h3>Оформлення замовлення</h3>
     </div>
   );
 };
 
-export default About;
+export default Order;

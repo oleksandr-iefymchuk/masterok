@@ -5,19 +5,80 @@
   flex-direction: column;
   align-items: center;
 
-  .basketList {
+  .basketTitle {
+    margin-bottom: 20px;
+  }
+
+  .basket {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 80%;
-    margin-top: 10px;
+    align-items: center;
+    width: 70%;
+
+    .continueShoppingBtn {
+      width: 256px;
+      height: 36px;
+      align-self: flex-end;
+      background-color: transparent;
+      border: 2px solid rgba(128, 128, 128, 0.381);
+      color: black;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+
+      &:hover {
+        background-color: #f05a00;
+        color: #fff;
+        border: none;
+        transition: 0.3s;
+      }
+    }
+
+    .basketList {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .totalAmountBlock {
+      align-self: flex-end;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      width: 300px;
+      margin-top: 15px;
+
+      p {
+        font-weight: 500;
+
+        .totalAmount {
+          color: #f05a00;
+          font-size: 18px;
+          margin-left: 15px;
+        }
+      }
+
+      .orderBtn {
+        margin-top: 15px;
+        width: 256px;
+        height: 36px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    }
   }
 }
 
 @media screen and (max-width: 1024px) {
   .basketWrap {
-    .basketList {
+    .basket {
       width: 100%;
+
+      .continueShoppingBtn {
+        align-self: center;
+      }
     }
   }
 }

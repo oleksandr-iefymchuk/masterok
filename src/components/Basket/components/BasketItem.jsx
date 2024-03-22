@@ -20,7 +20,6 @@ const BasketItem = ({ id, image, alt, title, price, quantity }) => {
     const quantityToRemove = currentBasketproduct
       ? currentBasketproduct.quantity
       : 0;
-    console.log('quantityToRemove:', quantityToRemove);
     dispatch(updateQuantityThunk(id, quantityToRemove, update));
     dispatch(removeFromBasket(id));
   };
@@ -60,7 +59,7 @@ const BasketItem = ({ id, image, alt, title, price, quantity }) => {
           />
         </div>
 
-        <p>
+        <p className="price">
           {new Intl.NumberFormat(undefined, {
             style: 'currency',
             currency: 'UAH',

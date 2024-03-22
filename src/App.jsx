@@ -9,13 +9,14 @@ import Registration from './components/Registration/Registration';
 import Login from './components/Login/Login';
 import Shop from './components/Shop/Shop';
 import About from './components/About/About';
-import Stock from './components/Shop/components/Stock/Stock';
-import Novelty from './components/Shop/components/Novelty/Novelty';
+import Stock from './components/Stock/Stock';
+import Novelty from './components/Novelty/Novelty';
 import DeliveryInfo from './components/DeliveryInfo/DeliveryInfo';
 import CardInfo from './components/Shop/components/CardInfo/CardInfo';
 import Basket from './components/Basket/Basket';
 import Favorites from './components/Favorites/Favorites';
 import Footer from './components/Footer/Footer';
+import Order from './components/Order/Order';
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ function App() {
             <Route path="/masterok/registration" element={<Registration />} />
             <Route path="/masterok/login" element={<Login />} />
             <Route path="/masterok/basket" element={<Basket />} />
+            <Route path="/masterok/order" element={<Order />} />
             <Route path="/masterok/favorites" element={<Favorites />} />
             <Route path="/masterok/" element={<Shop />} />
             <Route path="/masterok/:courseId" element={<CardInfo />} />

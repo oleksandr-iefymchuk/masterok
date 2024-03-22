@@ -1,0 +1,42 @@
+.breadcrumbs {
+  display: flex;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 15px;
+
+  .activeLink {
+    color: #000000;
+    text-decoration: none;
+
+    .linkHome {
+      svg {
+        stroke: #1c274c;
+      }
+    }
+  }
+
+  .inactiveLink {
+    color: #959595;
+    text-decoration: none;
+
+    .linkHome {
+      svg {
+        stroke: #959595;
+      }
+    }
+  }
+
+  .linkHome {
+    width: auto;
+    height: auto;
+    background-color: transparent;
+
+    svg {
+      fill: #000000;
+    }
+  }
+
+  .breadcrumbSeparator {
+    margin: 0 10px;
+  }
+}

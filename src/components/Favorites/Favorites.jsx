@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import './Favorites.scss';
 
 import ProductList from '../Shop/components/ProductList/ProductList';
-import ButtonWrapper from '../../common/Button/Button';
 import Pagination from '../Pagination/Pagination';
+import Breadcrumbs from '../../common/Breadcrumbs/Breadcrumbs';
+import { breadcrumbLinks } from '../../constants';
 
 const Favorites = () => {
   const favoriteItemsId = useSelector((state) => state.user.favoriteProducts);
@@ -14,11 +14,6 @@ const Favorites = () => {
   const favoriteProducts = favoriteItemsId.map((favoriteItem) => {
     return allProducts.find((product) => product.id === favoriteItem.id);
   });
-
-  const navigate = useNavigate();
-  const returnCourseList = () => {
-    navigate('/masterok');
-  };
 
   const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
@@ -36,14 +31,7 @@ const Favorites = () => {
 
   return (
     <section className="favoritesWrap">
-      <ButtonWrapper
-        buttonBlockClassName="backButtonWrap"
-        buttonClassName="backButton"
-        buttonText="Назад"
-        icon="back"
-        svgColor="#000"
-        onClick={returnCourseList}
-      />
+      <Breadcrumbs links={breadcrumbLinks} />
       <h2>Список бажань</h2>
       <p className="quantityProducts">
         Кількість товарів: {favoriteProducts.length}{' '}
