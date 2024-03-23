@@ -1,18 +1,28 @@
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateQuantityThunk } from '../../../../store/thunk';
+import { updateQuantityThunk } from '../../store/thunk';
+import { calculateDiscountedPrice, isNewProduct } from '../../helpers';
 
 import {
   addToBasket,
   addToFavorites,
   removeFromFavorites,
-} from '../../../../store/user/actionCreators';
+} from '../../store/user/actionCreators';
 
 import './CardProduct.scss';
-import ButtonWrapper from '../../../../common/Button/Button';
+import ButtonWrapper from '../Button/Button';
 
-const CardProduct = ({ id, image, alt, title, price, quantity }) => {
+const CardProduct = ({
+  id,
+  image,
+  alt,
+  title,
+  price,
+  quantity,
+  discount,
+  dateAdded,
+}) => {
   const navigate = useNavigate();
   const navigationBasket = () => navigate('/masterok/basket');
 
@@ -30,7 +40,16 @@ const CardProduct = ({ id, image, alt, title, price, quantity }) => {
   const isInBasket = basketProducts.some((item) => item.id === id);
 
   const handleAddToBasket = () => {
-    const newItem = { id, image, alt, title, price, quantity };
+    const newItem = {
+      id,
+      image,
+      alt,
+      title,
+      price,
+      quantity,
+      discount,
+      dateAdded,
+    };
     if (!isInBasket) {
       dispatch(addToBasket(newItem));
       dispatch(updateQuantityThunk(id, 1, 'increase'));
@@ -50,6 +69,11 @@ const CardProduct = ({ id, image, alt, title, price, quantity }) => {
 
   return (
     <div className="cardProduct">
+      <div className="badges">
+        {isNewProduct(dateAdded) && <span className="badgeNew">Новинка</span>}
+        {discount > 0 && <span className="badgeDiscount">-{discount}%</span>}
+      </div>
+
       <ButtonWrapper
         buttonBlockClassName="favoritesBtnWrap"
         buttonClassName="favoritesButton"
@@ -72,10 +96,22 @@ const CardProduct = ({ id, image, alt, title, price, quantity }) => {
         </p>
 
         <div className="cardProductPrice">
-          {new Intl.NumberFormat(undefined, {
-            style: 'currency',
-            currency: 'UAH',
-          }).format(price)}
+          <div className="price">
+            <p className={`oldPrice ${discount > 0 ? 'discountedPrice' : ''}`}>
+              {new Intl.NumberFormat(undefined, {
+                style: 'currency',
+                currency: 'UAH',
+              }).format(price)}
+            </p>
+            {discount > 0 && (
+              <p className="newPrice">
+                {new Intl.NumberFormat(undefined, {
+                  style: 'currency',
+                  currency: 'UAH',
+                }).format(calculateDiscountedPrice(price, discount))}
+              </p>
+            )}
+          </div>
 
           <ButtonWrapper
             buttonClassName={
@@ -104,6 +140,8 @@ CardProduct.propTypes = {
   title: PropTypes.string,
   price: PropTypes.number,
   quantity: PropTypes.number,
+  dateAdded: PropTypes.string,
+  discount: PropTypes.number,
 };
 
 export default CardProduct;

@@ -11,21 +11,4 @@
     width: 100%;
     font-weight: 600;
   }
-
-  .backButtonWrap {
-    width: 100%;
-
-    .backButton {
-      width: auto;
-      height: 30px;
-      background-color: transparent;
-      color: black;
-      font-size: 18px;
-      align-self: flex-start;
-
-      svg {
-        margin-right: 5px;
-      }
-    }
-  }
 }

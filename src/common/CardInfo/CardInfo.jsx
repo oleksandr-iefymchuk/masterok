@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { mockedProductsList } from '../../../../constants';
+import { mockedProductsList } from '../../constants';
 
 const CardInfo = () => {
   const { courseId } = useParams();

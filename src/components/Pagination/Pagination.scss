@@ -1,13 +1,20 @@
 .pagination {
   display: flex;
   margin-top: 20px;
+  flex-direction: column;
 
-  .paginationButtons {
-    background-color: transparent;
-    color: #000;
-  }
+  .paginationBtnBlock {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 
-  .paginationButtons.active {
-    background-color: #f05a00;
+    .paginationButtons {
+      background-color: transparent;
+      color: #000;
+    }
+
+    .paginationButtons.active {
+      background-color: #f05a00;
+    }
   }
 }

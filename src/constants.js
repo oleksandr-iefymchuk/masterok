@@ -11,6 +11,11 @@ import p197259 from './assets/products/197259.webp';
 import p215226661 from './assets/products/215226661.webp';
 import p256597571 from './assets/products/256597571.webp';
 
+import tools from './assets/banner/banner.jpg';
+import discountedProducts from './assets/banner/banner2.jpg';
+import novelty from './assets/banner/banner3.webp';
+import popular from './assets/banner/banner4.jpg';
+
 export const mockedProductsList = [
   {
     id: '303370823',
@@ -19,7 +24,9 @@ export const mockedProductsList = [
     title: "Фарба інтер'єрна акрилова мийна TRIORA 1.4 кг Біла",
     price: 137,
     quantity: 2,
+    discount: 10,
     category: 'Фарби, лаки, клеї',
+    dateAdded: '2024-03-23',
   },
   {
     id: '303371093',
@@ -28,7 +35,9 @@ export const mockedProductsList = [
     title: 'Фарба для стель і стін Ruta White 1.4 кг Біла',
     price: 90,
     quantity: 0,
+    discount: 5,
     category: 'Фарби, лаки, клеї',
+    dateAdded: '2022-07-05',
   },
   {
     id: '414763323',
@@ -37,7 +46,9 @@ export const mockedProductsList = [
     title: 'Фарба гумова структурна РабберФлекс SkyLine Біла 1.4 кг',
     price: 216,
     quantity: 1,
+    discount: 10,
     category: 'Фарби, лаки, клеї',
+    dateAdded: '2024-01-19',
   },
   {
     id: '301427688',
@@ -46,7 +57,9 @@ export const mockedProductsList = [
     title: 'Набір ручних інструментів WMC TOOLS 100 предметів',
     price: 1048,
     quantity: 1,
+    discount: 0,
     category: 'Інструменти',
+    dateAdded: '2023-12-29',
   },
   {
     id: '270450021',
@@ -56,7 +69,9 @@ export const mockedProductsList = [
       'Набір інструментів Intertool Cr-V Storm 1/2" & 1/4" 100 предметів (ET-8100)',
     price: 2258,
     quantity: 1,
+    discount: 3,
     category: 'Інструменти',
+    dateAdded: '2024-03-07',
   },
   {
     id: '301427768',
@@ -65,7 +80,9 @@ export const mockedProductsList = [
     title: 'Набір інструментів WMC TOOLS 130 шт.',
     price: 859,
     quantity: 1,
+    discount: 0,
     category: 'Інструменти',
+    dateAdded: '2022-02-21',
   },
   {
     id: '57203739',
@@ -74,7 +91,9 @@ export const mockedProductsList = [
     title: 'Жилет безпеки Lavita LA 171600',
     price: 125,
     quantity: 1,
+    discount: 0,
     category: 'Спецодяг',
+    dateAdded: '2023-10-15',
   },
   {
     id: '373561911',
@@ -83,7 +102,9 @@ export const mockedProductsList = [
     title: 'Штани робочі Ardon Cool Trend 46 Синьо-чорні',
     price: 1093,
     quantity: 1,
+    discount: 0,
     category: 'Спецодяг',
+    dateAdded: '2022-11-18',
   },
   {
     id: '373562781',
@@ -92,7 +113,9 @@ export const mockedProductsList = [
     title: 'Куртка робоча Insight WALTER L Сіро-чорна',
     price: 711,
     quantity: 1,
+    discount: 0,
     category: 'Спецодяг',
+    dateAdded: '2023-09-12',
   },
   {
     id: '197259',
@@ -101,7 +124,9 @@ export const mockedProductsList = [
     title: 'Мережевий шуруповерт Зенит Профи ЗШ-550',
     price: 1112,
     quantity: 1,
+    discount: 5,
     category: 'Електроінструменти',
+    dateAdded: '2023-12-17',
   },
   {
     id: '215226661',
@@ -110,7 +135,9 @@ export const mockedProductsList = [
     title: 'Кутова шліфмашина Metabo WEV 11-125 Quick',
     price: 4335,
     quantity: 1,
+    discount: 0,
     category: 'Електроінструменти',
+    dateAdded: '2023-07-02',
   },
   {
     id: '256597571',
@@ -119,7 +146,36 @@ export const mockedProductsList = [
     title: 'Лобзик електричний Tekhmann TJS-800 MR',
     price: 2550,
     quantity: 1,
+    discount: 0,
     category: 'Електроінструменти',
+    dateAdded: '2023-10-20',
+  },
+];
+
+export const banners = [
+  {
+    title: 'ТОП-товари',
+    image: tools,
+    route: '/masterok/tools',
+    class: 'tools',
+  },
+  {
+    title: 'Знижки',
+    image: discountedProducts,
+    route: '/masterok/discounted-products',
+    class: 'discountedProducts',
+  },
+  {
+    title: 'Новинки',
+    image: novelty,
+    route: '/masterok/novelty',
+    class: 'novelty',
+  },
+  {
+    title: 'Популярне',
+    image: popular,
+    route: '/masterok/popular',
+    class: 'popular',
   },
 ];
 
@@ -145,8 +201,8 @@ export const breadcrumbLinks = [
     name: 'Про компанію',
   },
   {
-    link: '/masterok/stock',
-    name: 'Акції',
+    link: '/masterok/discounted-products',
+    name: 'Знижки',
   },
   {
     link: '/masterok/novelty',
@@ -158,7 +214,7 @@ export const breadcrumbLinks = [
   },
   {
     link: '/masterok/basket',
-    name: 'Корзина',
+    name: 'Кошик',
   },
   {
     link: '/masterok/order',
@@ -180,8 +236,8 @@ export const navbarLinks = [
     name: 'Про компанію',
   },
   {
-    link: '/masterok/stock',
-    name: 'Акції',
+    link: '/masterok/discounted-products',
+    name: 'Знижки',
   },
   {
     link: '/masterok/novelty',
@@ -212,3 +268,10 @@ export const svgOption = {
   DEFAULT_SIZE: 25,
   DEFAULT_COLOR: '#ffffff',
 };
+
+export const categories = [
+  'Фарби, лаки, клеї',
+  'Інструменти',
+  'Спецодяг',
+  'Електроінструменти',
+];

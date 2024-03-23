@@ -1,23 +1,21 @@
 import { useSelector } from 'react-redux';
-import './Novelty.scss';
+import './DiscountedProducts.scss';
 import Breadcrumbs from '../../common/Breadcrumbs/Breadcrumbs';
 import { breadcrumbLinks } from '../../constants';
 import Pagination from '../Pagination/Pagination';
-import { isNewProduct } from '../../helpers';
 
-const Novelty = () => {
+const DiscountedProducts = () => {
   const products = useSelector((state) => state.products);
-  const newProducts = products.filter((product) =>
-    isNewProduct(product.dateAdded),
-  );
+
+  const discountedProducts = products.filter(({ discount }) => discount > 0);
 
   return (
-    <div className="noveltyWrap">
+    <div className="discountedProducts">
       <Breadcrumbs links={breadcrumbLinks} />
-      <h2>Новинки</h2>
-      <Pagination products={newProducts} />
+      <h2>Акції</h2>
+      <Pagination products={discountedProducts} />
     </div>
   );
 };
 
-export default Novelty;
+export default DiscountedProducts;

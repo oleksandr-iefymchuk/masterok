@@ -7,13 +7,17 @@ import { removeFromBasket } from '../../../store/user/actionCreators';
 
 import ButtonWrapper from '../../../common/Button/Button';
 
-const BasketItem = ({ id, image, alt, title, price, quantity }) => {
+import { calculateDiscountedPrice } from '../../../helpers';
+
+const BasketItem = ({ id, image, alt, title, price, quantity, discount }) => {
+  console.log('discount:', discount);
   const dispatch = useDispatch();
   const basketProducts = useSelector((state) => state.user.basketProducts);
   const products = useSelector((state) => state.products);
   const currentproduct = products.find((product) => product.id === id);
 
-  const totalPrice = price * quantity;
+  const oldTotalPrice = price * quantity;
+  const newTotalPrice = calculateDiscountedPrice(price, discount) * quantity;
 
   const handleRemoveFromBasket = (update) => {
     const currentBasketproduct = basketProducts.find((item) => item.id === id);
@@ -58,14 +62,23 @@ const BasketItem = ({ id, image, alt, title, price, quantity }) => {
             icon="plus"
           />
         </div>
+        <div className="price">
+          <p className={discount > 0 ? 'oldPrice' : 'newPrice'}>
+            {new Intl.NumberFormat(undefined, {
+              style: 'currency',
+              currency: 'UAH',
+            }).format(oldTotalPrice)}
+          </p>
 
-        <p className="price">
-          {new Intl.NumberFormat(undefined, {
-            style: 'currency',
-            currency: 'UAH',
-          }).format(totalPrice)}
-        </p>
-
+          {discount > 0 && (
+            <p className="newPrice">
+              {new Intl.NumberFormat(undefined, {
+                style: 'currency',
+                currency: 'UAH',
+              }).format(newTotalPrice)}
+            </p>
+          )}
+        </div>
         <ButtonWrapper
           buttonClassName="deleteBtn"
           onClick={() => handleRemoveFromBasket('decrease')}
@@ -83,6 +96,7 @@ BasketItem.propTypes = {
   title: PropTypes.string,
   price: PropTypes.number,
   quantity: PropTypes.number,
+  discount: PropTypes.number,
 };
 
 export default BasketItem;

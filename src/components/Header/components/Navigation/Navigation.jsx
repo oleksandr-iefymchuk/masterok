@@ -14,6 +14,7 @@ import {
 
 import { useDispatch } from 'react-redux';
 import { searchProduct } from '../../../../store/searchProduct/actionCreators';
+import { useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
   const { SEARCH_PLACEHOLDER } = PLACEHOLDER_LABELS;
@@ -21,19 +22,19 @@ const Navigation = () => {
   const isMobileDevice = useMediaQuery({ maxWidth: 768 });
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const searchListNav = () => navigate('/masterok/search');
+
   const [searchValue, setSearchValue] = useState('');
 
   const handleSearchChange = (e) => {
     const { value } = e.target;
     setSearchValue(value);
-
-    if (!value.trim()) {
-      dispatch(searchProduct(''));
-    }
   };
 
   const handleSearchSubmit = () => {
     dispatch(searchProduct(searchValue));
+    searchListNav();
   };
 
   return (
@@ -63,6 +64,7 @@ const Navigation = () => {
             onChangeInput={handleSearchChange}
           />
           <ButtonWrapper
+            disabled={searchValue.trim() === ''}
             buttonClassName="searchButton"
             buttonText={BUTTON_SEARCH}
             onClick={handleSearchSubmit}
