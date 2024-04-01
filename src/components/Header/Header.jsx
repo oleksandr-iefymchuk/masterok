@@ -1,11 +1,11 @@
 import './Header.scss';
-import ContactInfo from './components/ContactInfo/ContactInfo';
+import ControlBlock from './components/ControlBlock/ControlBlock';
 import Navigation from './components/Navigation/Navigation';
 
 const Header = () => {
   return (
     <header className="headerWrapper">
-      <ContactInfo />
+      <ControlBlock />
       <Navigation />
     </header>
   );

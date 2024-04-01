@@ -10,5 +10,20 @@
   .quantityProducts {
     width: 100%;
     font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .emptyBasket {
+    color: #a2a2a2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 300;
+
+    p {
+      margin: 30px;
+    }
   }
 }

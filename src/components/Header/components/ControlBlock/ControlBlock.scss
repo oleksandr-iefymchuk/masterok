@@ -1,0 +1,79 @@
+.controlBlockWrapper {
+  display: flex;
+  justify-content: center;
+  background-color: #212526;
+  padding: 6px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  .controlBlock {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 90%;
+    position: relative;
+
+    .catalogButton {
+      background-color: #3b3b3b;
+      width: 200px;
+      height: 50px;
+      margin: 0 15px 0 0;
+      flex: none;
+      border-radius: 3px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      border: 1px solid #008ec8;
+      margin: 15px 0;
+      &:hover {
+        background-color: #008ec8;
+      }
+      svg {
+        position: static;
+      }
+    }
+
+    .searchBar {
+      display: flex;
+      align-items: baseline;
+      flex: 0.8;
+
+      .searchButton {
+        width: 70px;
+        height: 40px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .controlBlockWrapper {
+    .controlBlock {
+      .catalogButton {
+        width: 40px;
+        height: 40px;
+        margin-right: 3px;
+        border: none;
+      }
+
+      .searchBar {
+        flex: 1;
+        min-width: 30%;
+        position: relative;
+        margin: 0 5px;
+
+        .searchButton {
+          position: absolute;
+          background-color: transparent;
+          right: 0;
+          top: 2px;
+          width: 30px;
+          height: 37px;
+        }
+      }
+    }
+  }
+}

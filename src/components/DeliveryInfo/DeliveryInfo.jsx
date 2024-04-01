@@ -1,12 +1,11 @@
 import './DeliveryInfo.scss';
 
 import Breadcrumbs from '../../common/Breadcrumbs/Breadcrumbs';
-import { breadcrumbLinks } from '../../constants';
 
 const DeliveryInfo = () => {
   return (
     <section className="deliveryInfo">
-      <Breadcrumbs links={breadcrumbLinks} />
+      <Breadcrumbs />
       <h2>Умови доставки та оплати</h2>
       <h3>Способи доставки</h3>
       <ul>

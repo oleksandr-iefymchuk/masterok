@@ -1,86 +1,87 @@
 .bannersWrapper {
   background-color: #212526;
-  padding-top: 25px;
-  padding-bottom: 25px;
   width: 100%;
+  margin: 0 auto;
 
-  .promoBanners {
-    width: 90%;
+  .sliderContainer {
     margin: 0 auto;
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(4, minmax(150px, 1fr));
-    grid-template-rows: repeat(2, minmax(100px, 230px));
-    grid-gap: 15px;
-    grid-template-areas:
-      'tools tools discountedProducts novelty'
-      'tools tools discountedProducts popular';
+    // max-width: 99vw;
+    height: 500px;
 
-    .bannerBlock {
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+    .arrowNext,
+    .arrowPrev {
+      width: 60px;
+      height: 60px;
+      z-index: 10;
+      position: absolute;
+      top: 45%;
+      transform: translate(0, -45%);
+      background-color: transparent;
+
+      svg {
+        width: 40px;
+        height: 40px;
+        fill: #000000;
+      }
+    }
+
+    .arrowNext {
+      right: 2%;
+    }
+    .arrowPrev {
+      left: 2%;
+    }
+
+    .card {
+      height: 500px;
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
       position: relative;
-
-      &:hover .bannerBtnWrap button {
-        background-color: #f05a00;
-        svg {
-          stroke: #3b3b3b;
-        }
-        transition: 0.3s;
-      }
-
-      &.tools {
-        grid-area: tools;
-      }
-
-      &.discountedProducts {
-        grid-area: discountedProducts;
-      }
-
-      &.novelty {
-        grid-area: novelty;
-      }
-
-      &.popular {
-        grid-area: popular;
-      }
 
       .bannerTitle {
         position: absolute;
-        right: 5%;
+        right: 6%;
         top: 4%;
         transform: translate(-5%, -4%);
         color: #fff;
-        font-weight: 600;
+        font-weight: 400;
+        text-transform: uppercase;
         letter-spacing: 2px;
+        font-size: 28px;
         text-shadow: 0px 0px 5px black;
       }
-
-      .bannerImg {
+      img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 10px;
       }
+    }
 
-      .bannerBtnWrap {
-        position: absolute;
-        bottom: 0;
-        right: 0;
+    .slick-dots.slick-thumb {
+      position: absolute;
+      bottom: 0;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
       }
     }
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .bannersWrapper {
-    .promoBanners {
-      grid-template-areas: none;
-      grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-      grid-template-rows: minmax(auto, auto);
+    .sliderContainer {
+      height: 220px;
 
-      .bannerBlock {
-        grid-column: unset !important;
-        grid-row: unset !important;
+      .card {
+        height: 220px;
+
+        .bannerTitle {
+          right: 5%;
+          font-size: 20px;
+        }
       }
     }
   }

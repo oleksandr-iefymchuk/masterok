@@ -2,41 +2,23 @@
   display: flex;
   width: 100%;
   text-align: left;
-  margin-bottom: 15px;
+  margin: 15px 0;
 
-  .activeLink {
-    color: #000000;
-    text-decoration: none;
-
-    .linkHome {
-      svg {
-        stroke: #1c274c;
-      }
-    }
-  }
-
-  .inactiveLink {
+  a {
     color: #959595;
     text-decoration: none;
-
-    .linkHome {
-      svg {
-        stroke: #959595;
-      }
-    }
+    margin-right: 5px;
+    margin-left: 5px;
   }
 
   .linkHome {
     width: auto;
     height: auto;
     background-color: transparent;
+    margin-right: 5px;
 
     svg {
-      fill: #000000;
+      stroke: #959595;
     }
-  }
-
-  .breadcrumbSeparator {
-    margin: 0 10px;
   }
 }

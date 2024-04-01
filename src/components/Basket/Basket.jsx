@@ -5,9 +5,9 @@ import './Basket.scss';
 import BasketItem from './components/BasketItem';
 import Button from '../../common/Button/Button';
 import Breadcrumbs from '../../common/Breadcrumbs/Breadcrumbs';
-import { breadcrumbLinks } from '../../constants';
 
 import { calculateDiscountedPrice } from '../../helpers';
+import SvgIcon from '../../common/SvgIcon';
 
 const Basket = () => {
   const navigate = useNavigate();
@@ -40,7 +40,7 @@ const Basket = () => {
 
   return (
     <div className="basketWrap">
-      <Breadcrumbs links={breadcrumbLinks} />
+      <Breadcrumbs />
       <h2 className="basketTitle">Кошик</h2>
       <div className="basket">
         {basketProducts.length > 0 && (
@@ -56,7 +56,7 @@ const Basket = () => {
             <BasketItem key={product.id} {...product} />
           ))}
         </div>
-        {basketProducts.length > 0 && (
+        {basketProducts.length > 0 ? (
           <div className="totalAmountBlock">
             <p>
               Сума:{' '}
@@ -91,6 +91,16 @@ const Basket = () => {
               buttonText="Перейти до оформлення"
               onClick={handleOrder}
             />
+          </div>
+        ) : (
+          <div className="emptyBasket">
+            <SvgIcon
+              name="emptyBasket"
+              color="#a2a2a2"
+              width="300px"
+              height="200px"
+            />
+            <p>В кошику немає товарів. Але це ніколи не пізно виправити :) </p>
           </div>
         )}
       </div>

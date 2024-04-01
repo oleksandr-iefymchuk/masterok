@@ -1,7 +1,27 @@
-.shopWrapper {
+.homeWrapper {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  overflow: hidden;
+
+  .catalogButton {
+    width: 300px;
+    height: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid #008ec8;
+    margin: 15px 0;
+    border-radius: 5px;
+    position: relative;
+    background-color: #008ec8;
+    font-size: 18px;
+
+    .svgWrapper {
+      position: absolute;
+      left: 3%;
+    }
+  }
 
   .productsList {
     width: 90%;
@@ -38,7 +58,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .shopWrapper {
+  .homeWrapper {
     .productsList {
       width: 100%;
 
@@ -75,6 +95,14 @@
           }
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .homeWrapper {
+    .catalogButton {
+      flex: 0.9;
     }
   }
 }

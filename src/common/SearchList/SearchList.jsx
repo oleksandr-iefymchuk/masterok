@@ -7,7 +7,7 @@ import ButtonWrapper from '../Button/Button';
 import Pagination from '../../components/Pagination/Pagination';
 
 const SearchList = () => {
-  const searchValue = useSelector((state) => state.search.searchValue);
+  const searchValue = useSelector((state) => state.app.searchValue);
   const allProducts = useSelector((state) => state.products);
 
   const [filteredProducts, setFilteredProducts] = useState([]);

@@ -1,0 +1,49 @@
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
+
+import './UserBox.scss';
+
+import Button from '../../../../../../common/Button/Button';
+import { Fragment } from 'react';
+
+const UserBox = () => {
+  const basketProducts = useSelector((store) => store.user.basketProducts);
+  const favoriteProducts = useSelector((store) => store.user.favoriteProducts);
+
+  const navigate = useNavigate();
+  const navigationBasket = () => navigate('/masterok/basket');
+  const navigationFavorites = () => navigate('/masterok/favorites');
+
+  const isMobileDevice = useMediaQuery({ maxWidth: 768 });
+
+  return (
+    <div className="userBox">
+      {!isMobileDevice && (
+        <Fragment>
+          <Button
+            buttonClassName="buttonBlock"
+            imgClassName="favoritesImg"
+            icon="favorites"
+            value={favoriteProducts.length}
+            onClick={navigationFavorites}
+          />
+          <Button
+            buttonClassName="buttonBlock"
+            icon="user"
+            onClick={() => console.log('Login')}
+          />
+        </Fragment>
+      )}
+
+      <Button
+        buttonClassName="buttonBlock"
+        icon="basket"
+        value={basketProducts.length}
+        onClick={navigationBasket}
+      />
+    </div>
+  );
+};
+
+export default UserBox;

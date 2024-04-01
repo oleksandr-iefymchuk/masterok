@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateQuantityThunk } from '../../store/thunk';
 import { calculateDiscountedPrice, isNewProduct } from '../../helpers';
+import { categories } from '../../constants';
 
 import {
   addToBasket,
@@ -15,12 +16,13 @@ import ButtonWrapper from '../Button/Button';
 
 const CardProduct = ({
   id,
-  image,
+  images,
   alt,
   title,
   price,
   quantity,
   discount,
+  subcategory,
   dateAdded,
 }) => {
   const navigate = useNavigate();
@@ -42,12 +44,13 @@ const CardProduct = ({
   const handleAddToBasket = () => {
     const newItem = {
       id,
-      image,
+      images,
       alt,
       title,
       price,
       quantity,
       discount,
+      subcategory,
       dateAdded,
     };
     if (!isInBasket) {
@@ -67,6 +70,19 @@ const CardProduct = ({
     }
   };
 
+  const findSubcategoryByName = (name) => {
+    for (const category of categories) {
+      for (const subcategory of category.subcategories) {
+        if (subcategory.name === name) {
+          return subcategory.linkName;
+        }
+      }
+    }
+    return null;
+  };
+
+  const subcategoryLinkName = findSubcategoryByName(subcategory);
+
   return (
     <div className="cardProduct">
       <div className="badges">
@@ -81,12 +97,12 @@ const CardProduct = ({
         svgColor="#f05a00"
         onClick={handleAddToFavotites}
       />
-      <Link to={`/masterok/${id}`}>
-        <img src={image} alt={alt} />
+      <Link to={`/masterok/catalog/${subcategoryLinkName}/${id}`}>
+        <img src={images[0]} alt={alt} />
       </Link>
       <div className="cardProductInfo">
         <p>Код: {id}</p>
-        <Link to={`/masterok/${id}`}>
+        <Link to={`/masterok/catalog/${subcategoryLinkName}/${id}`}>
           <h3>{title}</h3>
         </Link>
         <p
@@ -135,9 +151,10 @@ const CardProduct = ({
 
 CardProduct.propTypes = {
   id: PropTypes.string,
-  image: PropTypes.string,
+  images: PropTypes.array,
   alt: PropTypes.string,
   title: PropTypes.string,
+  subcategory: PropTypes.string,
   price: PropTypes.number,
   quantity: PropTypes.number,
   dateAdded: PropTypes.string,

@@ -10,6 +10,7 @@ body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  background-color: #212526;
 
   #root {
     display: flex;
@@ -20,6 +21,20 @@ body {
 
     main {
       flex: 1;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  html,
+  body {
+    #root {
+      main {
+        padding-top: 52px;
+      }
     }
   }
 }

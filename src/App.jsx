@@ -18,6 +18,7 @@ import Favorites from './components/Favorites/Favorites';
 import Footer from './components/Footer/Footer';
 import Order from './components/Order/Order';
 import SearchList from './common/SearchList/SearchList';
+import Catalog from './components/Catalog/Catalog';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -34,11 +35,20 @@ const App = () => {
           <Routes>
             <Route path="/masterok/registration" element={<Registration />} />
             <Route path="/masterok/login" element={<Login />} />
+            <Route path="/masterok/" element={<Home />} />
+            <Route path="/masterok/catalog" element={<Catalog />} />
+            {/* <Route path="/masterok/catalog/:category" element={<Catalog />} /> */}
+            <Route
+              path="/masterok/catalog/:subcategory"
+              element={<Catalog />}
+            />
+            <Route
+              path="/masterok/catalog/:subcategory/:productId"
+              element={<CardInfo />}
+            />
             <Route path="/masterok/basket" element={<Basket />} />
             <Route path="/masterok/order" element={<Order />} />
             <Route path="/masterok/favorites" element={<Favorites />} />
-            <Route path="/masterok/" element={<Home />} />
-            <Route path="/masterok/:courseId" element={<CardInfo />} />
             <Route path="/masterok/about" element={<About />}></Route>
             <Route
               path="/masterok/discounted-products"

@@ -1,52 +1,12 @@
-import { useState } from 'react';
 import './Navigation.scss';
-import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
 
-import InputWrapper from '../../../../common/Input/Input';
-import ButtonWrapper from '../../../../common/Button/Button';
-
-import {
-  PLACEHOLDER_LABELS,
-  BUTTON_LABELS,
-  navbarLinks,
-} from '../../../../constants';
-
-import { useDispatch } from 'react-redux';
-import { searchProduct } from '../../../../store/searchProduct/actionCreators';
-import { useNavigate } from 'react-router-dom';
+import { navbarLinks } from '../../../../constants';
 
 const Navigation = () => {
-  const { SEARCH_PLACEHOLDER } = PLACEHOLDER_LABELS;
-  const { BUTTON_SEARCH, BUTTON_CATALOG } = BUTTON_LABELS;
-  const isMobileDevice = useMediaQuery({ maxWidth: 768 });
-
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const searchListNav = () => navigate('/masterok/search');
-
-  const [searchValue, setSearchValue] = useState('');
-
-  const handleSearchChange = (e) => {
-    const { value } = e.target;
-    setSearchValue(value);
-  };
-
-  const handleSearchSubmit = () => {
-    dispatch(searchProduct(searchValue));
-    searchListNav();
-  };
-
   return (
     <div className="navWrapper">
       <div className="controlPanel">
-        <ButtonWrapper
-          buttonClassName="catalogButton"
-          icon="burger"
-          buttonText={!isMobileDevice ? BUTTON_CATALOG : ''}
-          onClick={() => console.log('Каталог товарів')}
-        />
-
         <nav className="navBar">
           <ul>
             {navbarLinks.map(({ link, name }) => (
@@ -56,19 +16,27 @@ const Navigation = () => {
             ))}
           </ul>
         </nav>
-        <div className="searchBar">
-          <InputWrapper
-            placeholder={SEARCH_PLACEHOLDER}
-            type="text"
-            value={searchValue}
-            onChangeInput={handleSearchChange}
+
+        {/* <div className="contactIcons">
+          <ButtonWrapper
+            buttonClassName="phoneButton"
+            icon="phone"
+            onClick={() => (window.location.href = 'tel:+380939304137')}
           />
           <ButtonWrapper
-            disabled={searchValue.trim() === ''}
-            buttonClassName="searchButton"
-            buttonText={BUTTON_SEARCH}
-            onClick={handleSearchSubmit}
+            buttonClassName="emailButton"
+            icon="email"
+            onClick={() => (window.location.href = 'tel:+380939304137')}
           />
+        </div> */}
+
+        <div className="contacts">
+          <p>
+            <span>Телефон:</span> +38 (093) 93-04-137
+          </p>
+          <p>
+            <span>E-mail:</span> masterok.mk24@gmail.com
+          </p>
         </div>
       </div>
     </div>

@@ -1,18 +1,22 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
-
+import { useMediaQuery } from 'react-responsive';
 import './Home.scss';
 
 import Banner from './components/Banner/Banner';
 import ButtonWrapper from '../../common/Button/Button';
 import ProductList from '../ProductList/ProductList';
 
-import { categories } from '../../constants';
+import { BUTTON_LABELS, categories } from '../../constants';
+import CatalogBatton from '../Catalog/components/CatalogBatton/CatalogBatton';
 
-const Shop = () => {
+const Home = () => {
+  const { BUTTON_CATALOG } = BUTTON_LABELS;
+  const categoryMenuRef = useRef(null);
   const products = useSelector((state) => state.products);
 
   const [categoryIndexes, setCategoryIndexes] = useState({});
+  const isMobileDevice = useMediaQuery({ maxWidth: 1024 });
 
   const setCurrentIndex = (category, index) => {
     setCategoryIndexes((prevIndexes) => ({
@@ -22,34 +26,53 @@ const Shop = () => {
   };
 
   return (
-    <div className="shopWrapper">
+    <div className="homeWrapper">
       <Banner />
-      <div className="productsList">
-        {categories.map((category) => {
-          const categoryProducts = products.filter(
-            (product) => product.category === category,
-          );
+      {isMobileDevice && (
+        <CatalogBatton
+          categories={categories}
+          refProp={categoryMenuRef}
+          iconBurger="menu"
+          buttonText={BUTTON_CATALOG}
+          buttonClassName="catalogButton"
+        />
+      )}
 
-          const currentIndex = categoryIndexes[category] || 0;
+      <div className="productsList">
+        {categories.map((categoryData) => {
+          const { name: categoryName, subcategories } = categoryData;
+
+          const categoryProducts = subcategories.reduce((acc, subcategory) => {
+            const subcategoryProducts = products.filter(
+              (product) => product.subcategory === subcategory.name,
+            );
+            return [...acc, ...subcategoryProducts];
+          }, []);
+
+          const currentIndex = categoryIndexes[categoryName] || 0;
           const displayedProducts = categoryProducts.slice(
             currentIndex,
             currentIndex + 2,
           );
 
           return (
-            <div className="productCategory" key={category}>
+            <div className="productCategory" key={categoryName}>
               <div className="categoryTitle">
-                <h2>{category}</h2>
+                <h2>{categoryName}</h2>
                 <ButtonWrapper
                   buttonClassName="categoryButtons"
                   disabled={currentIndex === 0}
-                  onClick={() => setCurrentIndex(category, currentIndex - 2)}
+                  onClick={() =>
+                    setCurrentIndex(categoryName, currentIndex - 2)
+                  }
                   icon="arrowPrev"
                 />
                 <ButtonWrapper
                   buttonClassName="categoryButtons"
                   disabled={currentIndex + 2 >= categoryProducts.length}
-                  onClick={() => setCurrentIndex(category, currentIndex + 2)}
+                  onClick={() =>
+                    setCurrentIndex(categoryName, currentIndex + 2)
+                  }
                   icon="arrowNext"
                 />
               </div>
@@ -62,4 +85,4 @@ const Shop = () => {
   );
 };
 
-export default Shop;
+export default Home;

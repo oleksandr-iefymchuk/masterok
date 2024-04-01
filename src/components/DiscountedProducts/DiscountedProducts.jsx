@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import './DiscountedProducts.scss';
 import Breadcrumbs from '../../common/Breadcrumbs/Breadcrumbs';
-import { breadcrumbLinks } from '../../constants';
 import Pagination from '../Pagination/Pagination';
 
 const DiscountedProducts = () => {
@@ -11,7 +10,7 @@ const DiscountedProducts = () => {
 
   return (
     <div className="discountedProducts">
-      <Breadcrumbs links={breadcrumbLinks} />
+      <Breadcrumbs />
       <h2>Акції</h2>
       <Pagination products={discountedProducts} />
     </div>

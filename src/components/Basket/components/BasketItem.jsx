@@ -9,7 +9,7 @@ import ButtonWrapper from '../../../common/Button/Button';
 
 import { calculateDiscountedPrice } from '../../../helpers';
 
-const BasketItem = ({ id, image, alt, title, price, quantity, discount }) => {
+const BasketItem = ({ id, images, alt, title, price, quantity, discount }) => {
   console.log('discount:', discount);
   const dispatch = useDispatch();
   const basketProducts = useSelector((state) => state.user.basketProducts);
@@ -35,7 +35,7 @@ const BasketItem = ({ id, image, alt, title, price, quantity, discount }) => {
   return (
     <div className="basketItem">
       <div className="basketItemInfo">
-        <img src={image} alt={alt} />
+        <img src={images[0]} alt={alt} />
         <p>{title}</p>
       </div>
       <div className="basketCostBlock">
@@ -82,7 +82,7 @@ const BasketItem = ({ id, image, alt, title, price, quantity, discount }) => {
         <ButtonWrapper
           buttonClassName="deleteBtn"
           onClick={() => handleRemoveFromBasket('decrease')}
-          icon="delete"
+          icon="close"
         />
       </div>
     </div>
@@ -91,7 +91,7 @@ const BasketItem = ({ id, image, alt, title, price, quantity, discount }) => {
 
 BasketItem.propTypes = {
   id: PropTypes.string,
-  image: PropTypes.string,
+  images: PropTypes.array,
   alt: PropTypes.string,
   title: PropTypes.string,
   price: PropTypes.number,
