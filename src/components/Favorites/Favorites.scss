@@ -26,4 +26,20 @@
       margin: 30px;
     }
   }
+
+  .pagination {
+    width: 100%;
+
+    .products {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .favoritesWrap {
+    .quantityProducts {
+      margin-bottom: 5px;
+    }
+  }
 }

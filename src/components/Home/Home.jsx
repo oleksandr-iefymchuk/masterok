@@ -34,7 +34,7 @@ const Home = () => {
           refProp={categoryMenuRef}
           iconBurger="menu"
           buttonText={BUTTON_CATALOG}
-          buttonClassName="catalogButton"
+          buttonClassName="homeCatalogBtn"
         />
       )}
 

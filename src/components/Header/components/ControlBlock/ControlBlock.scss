@@ -17,7 +17,8 @@
     position: relative;
 
     .catalogButton {
-      background-color: #3b3b3b;
+      font-size: 14px;
+      letter-spacing: 1px;
       width: 200px;
       height: 50px;
       margin: 0 15px 0 0;
@@ -53,10 +54,12 @@
   .controlBlockWrapper {
     .controlBlock {
       .catalogButton {
-        width: 40px;
-        height: 40px;
-        margin-right: 3px;
+        width: 100%;
         border: none;
+
+        &:hover {
+          background-color: transparent;
+        }
       }
 
       .searchBar {

@@ -1,7 +1,14 @@
 .products {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  max-width: 1200px;
+  justify-content: flex-start;
+  width: 90%;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .products {
+    justify-content: flex-start;
+    width: 93%;
+  }
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect, Fragment } from 'react';
+import { useState, useEffect } from 'react';
 import ButtonWrapper from '../../../../common/Button/Button';
 import CategoryMenu from '../CategoryMenu/CategoryMenu';
 import './CatalogBatton.scss';
@@ -37,7 +37,7 @@ const CatalogBatton = ({
   };
 
   return (
-    <Fragment>
+    <div className="catalogButtonWrap">
       <ButtonWrapper
         buttonClassName={buttonClassName}
         svgWrapperClassName={svgWrapperClassName}
@@ -52,7 +52,7 @@ const CatalogBatton = ({
         categories={categories}
         ref={refProp}
       />
-    </Fragment>
+    </div>
   );
 };
 

@@ -14,11 +14,14 @@ const userInitialState = {
 
 const userReducer = (state = userInitialState, action) => {
   const existingItem = state.basketProducts.find(
-    ({ id }) => id === action.payload.id,
+    ({ id }) => id === (action.payload ? action.payload.id : null),
   );
 
+  // const isItemInFavorites = state.favoriteProducts.some(
+  //   ({ id }) => id === action.payload.id,
+  // );
   const isItemInFavorites = state.favoriteProducts.some(
-    ({ id }) => id === action.payload.id,
+    ({ id }) => id === (action.payload ? action.payload.id : null),
   );
 
   switch (action.type) {

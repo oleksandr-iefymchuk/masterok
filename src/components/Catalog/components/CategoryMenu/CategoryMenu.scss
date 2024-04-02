@@ -3,7 +3,7 @@
     height: 0;
   }
   to {
-    height: 179px;
+    height: 310px;
   }
 }
 
@@ -15,8 +15,7 @@
   border-radius: 5px;
   position: absolute;
   top: 108%;
-  left: 5%;
-  width: 90%;
+  left: 0%;
   height: 0;
   align-items: flex-start;
   overflow: hidden;
@@ -53,19 +52,22 @@
       }
     }
   }
-  .subcategoryList {
-    cursor: pointer;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    width: 100%;
-    gap: 10px;
-    // border: 1px solid #000;
+  .subcategoryMenu {
+    .subcategoryList {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
 
-    .subcategoryItem {
-      // border: 1px solid #000;
+      .subcategoryItem {
+        width: 340px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 10px 25px;
 
-      &:hover {
-        background-color: #eaedf7;
+        &:hover {
+          background-color: #eaedf7;
+        }
       }
     }
   }

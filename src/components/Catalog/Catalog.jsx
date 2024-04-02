@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-
+import './Catalog.scss';
 import { categories } from '../../constants';
 import Pagination from '../Pagination/Pagination';
 
@@ -33,8 +33,8 @@ const Catalog = () => {
   }, [category, subcategory, products]);
 
   return (
-    <div>
-      <h1>Каталог</h1>
+    <div className="catalogWrapper">
+      <h2>{category ? category : subcategory}</h2>
       <Pagination products={filteredProducts}></Pagination>
     </div>
   );

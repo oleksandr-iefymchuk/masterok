@@ -6,7 +6,7 @@ import ProductList from '../ProductList/ProductList';
 
 const Pagination = ({ products }) => {
   const maxButtons = 3;
-  const itemsPerPage = 8;
+  const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(products.length / itemsPerPage);

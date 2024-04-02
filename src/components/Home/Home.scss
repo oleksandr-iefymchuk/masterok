@@ -3,6 +3,8 @@
   justify-content: center;
   flex-wrap: wrap;
   overflow: hidden;
+  padding-bottom: 25px;
+  // font-size: 14px;
 
   .catalogButton {
     width: 300px;
@@ -16,25 +18,28 @@
     position: relative;
     background-color: #008ec8;
     font-size: 18px;
-
-    .svgWrapper {
-      position: absolute;
-      left: 3%;
-    }
   }
 
   .productsList {
-    width: 90%;
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
 
     .productCategory {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       margin-top: 20px;
+      width: 50%;
 
       .categoryTitle {
         display: flex;
-        width: 560px;
+        width: 90%;
+        margin-bottom: 10px;
         align-items: center;
 
         .categoryButtons {
@@ -51,7 +56,15 @@
       }
 
       .products {
+        display: flex;
         justify-content: flex-start;
+        width: 90%;
+        flex: 1;
+        margin: 0%;
+
+        .cardProduct {
+          width: 50%;
+        }
       }
     }
   }
@@ -59,27 +72,46 @@
 
 @media screen and (max-width: 1024px) {
   .homeWrapper {
+    .catalogButtonWrap {
+      width: 60%;
+      margin-top: 20px;
+
+      .homeCatalogBtn {
+        width: 100%;
+        position: relative;
+        justify-content: center;
+        background-color: #008ec8;
+        font-size: 16px;
+
+        svg {
+          left: 3%;
+          position: absolute;
+        }
+      }
+    }
+
     .productsList {
       width: 100%;
 
       .productCategory {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         .categoryTitle {
           width: 100%;
           justify-content: center;
+          margin-bottom: 10px;
         }
 
         .products {
-          width: 100%;
+          width: 50%;
           justify-content: center;
-          gap: 5px;
 
           .cardProduct {
-            width: 170px;
+            width: 50%;
             height: 345px;
-            margin: 10px 0 0 0;
-            padding: 7px;
 
             a {
               font-size: 9px;
@@ -101,8 +133,33 @@
 
 @media screen and (max-width: 768px) {
   .homeWrapper {
-    .catalogButton {
-      flex: 0.9;
+    .catalogButtonWrap {
+      width: 90%;
+    }
+    .productsList {
+      .productCategory {
+        .products {
+          width: 96%;
+          justify-content: center;
+
+          // .cardProduct {
+          //   width: 50%;
+          //   height: 345px;
+
+          //   a {
+          //     font-size: 9px;
+          //   }
+
+          //   .favoritesBtnWrap {
+          //     right: 3%;
+          //   }
+
+          //   .cardProductInfo {
+          //     font-size: 11px;
+          //   }
+          // }
+        }
+      }
     }
   }
 }

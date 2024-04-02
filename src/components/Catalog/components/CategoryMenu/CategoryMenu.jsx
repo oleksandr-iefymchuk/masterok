@@ -29,6 +29,7 @@ const CategoryMenu = forwardRef(
 
     const handleSubcategoryClick = (subcategory) => {
       dispatch(selectSubcategory(subcategory.name));
+      dispatch(selectCategory(null));
       navigate(`/masterok/catalog/${subcategory.linkName}`);
       closeMenu();
     };
