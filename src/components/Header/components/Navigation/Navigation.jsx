@@ -16,20 +16,6 @@ const Navigation = () => {
             ))}
           </ul>
         </nav>
-
-        {/* <div className="contactIcons">
-          <ButtonWrapper
-            buttonClassName="phoneButton"
-            icon="phone"
-            onClick={() => (window.location.href = 'tel:+380939304137')}
-          />
-          <ButtonWrapper
-            buttonClassName="emailButton"
-            icon="email"
-            onClick={() => (window.location.href = 'tel:+380939304137')}
-          />
-        </div> */}
-
         <div className="contacts">
           <p>
             <span>Телефон:</span> +38 (093) 93-04-137

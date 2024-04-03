@@ -19,6 +19,7 @@ import Footer from './components/Footer/Footer';
 import Order from './components/Order/Order';
 import SearchList from './common/SearchList/SearchList';
 import Catalog from './components/Catalog/Catalog';
+import Contacts from './components/Contacts/Contacts';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -50,15 +51,17 @@ const App = () => {
             <Route path="/masterok/order" element={<Order />} />
             <Route path="/masterok/favorites" element={<Favorites />} />
             <Route path="/masterok/about" element={<About />}></Route>
-            <Route
-              path="/masterok/discounted-products"
-              element={<DiscountedProducts />}
-            ></Route>
-            <Route path="/masterok/novelty" element={<Novelty />}></Route>
+            <Route path="/masterok/contacts" element={<Contacts />}></Route>
             <Route
               path="/masterok/delivery-info"
               element={<DeliveryInfo />}
             ></Route>
+            <Route
+              path="/masterok/sale"
+              element={<DiscountedProducts />}
+            ></Route>
+            <Route path="/masterok/novelty" element={<Novelty />}></Route>
+
             <Route path="/masterok/search" element={<SearchList />}></Route>
           </Routes>
         </main>

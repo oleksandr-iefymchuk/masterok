@@ -457,9 +457,9 @@ export const banners = [
     class: 'tools',
   },
   {
-    title: 'Знижки',
+    title: 'Акції',
     image: banner2,
-    route: '/masterok/discounted-products',
+    route: '/masterok/sale',
     class: 'discountedProduct',
   },
   {
@@ -491,7 +491,8 @@ export const BUTTON_LABELS = {
 export const breadcrumbLinks = {
   '/masterok': 'Головна',
   '/masterok/about': 'Про компанію',
-  '/masterok/discounted-products': 'Знижки',
+  '/masterok/contacts': 'Контактна інформація',
+  '/masterok/sale': 'Знижки',
   '/masterok/novelty': 'Новинки',
   '/masterok/delivery-info': 'Умови оплати та доставки',
   '/masterok/favorites': 'Список бажань',
@@ -510,7 +511,7 @@ export const navbarLinks = [
     name: 'Про компанію',
   },
   {
-    link: '/masterok/discounted-products',
+    link: '/masterok/sale',
     name: 'Знижки',
   },
   {

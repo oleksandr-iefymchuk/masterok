@@ -11,7 +11,7 @@ const DiscountedProducts = () => {
   return (
     <div className="discountedProducts">
       <Breadcrumbs />
-      <h2>Акції</h2>
+      <h2>Товари зі знижкою</h2>
       <Pagination products={discountedProducts} />
     </div>
   );
