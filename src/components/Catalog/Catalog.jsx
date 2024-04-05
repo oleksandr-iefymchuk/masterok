@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import './Catalog.scss';
 import { categories } from '../../constants';
 import SortList from '../../common/SortList/SortList';
+import Breadcrumbs from '../../common/Breadcrumbs/Breadcrumbs';
 
 const Catalog = () => {
   const activeCategory = useSelector((store) => store.app.selectedCategory);
@@ -38,7 +39,9 @@ const Catalog = () => {
 
   return (
     <div className="catalogWrapper">
+      <Breadcrumbs />
       <h2>{activeCategory ? activeCategory : activeSubcategory}</h2>
+
       <SortList products={filteredProducts}></SortList>
     </div>
   );

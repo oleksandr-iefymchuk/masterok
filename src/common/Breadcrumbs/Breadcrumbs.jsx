@@ -9,10 +9,9 @@ const Breadcrumbs = () => {
   const location = useLocation();
   const pathnameParts = location.pathname.split('/').filter(Boolean);
   const navigate = useNavigate();
-  const navigationHome = () => navigate('/');
 
   const handleGoHome = () => {
-    navigationHome();
+    navigate('/');
   };
 
   const pathWithoutProductId = pathnameParts.filter(
@@ -26,17 +25,18 @@ const Breadcrumbs = () => {
       return (
         <Fragment key={path}>
           {index === 0 ? (
-            <Button
-              icon="home"
-              buttonClassName="linkHome"
-              onClick={handleGoHome}
-            >
-              {displayName}
-            </Button>
+            <Fragment>
+              <Button
+                icon="home"
+                buttonClassName="linkHome"
+                onClick={handleGoHome}
+              />
+              {' / '}
+            </Fragment>
           ) : (
-            <Link to={path}>{displayName}</Link>
+            ''
           )}
-
+          <Link to={path}>{displayName}</Link>
           {index < pathParts.length - 1 && <span> / </span>}
         </Fragment>
       );

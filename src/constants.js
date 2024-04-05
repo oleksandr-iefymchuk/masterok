@@ -486,7 +486,7 @@ export const breadcrumbLinks = {
   '/favorites': 'Список бажань',
   '/basket': 'Кошик',
   '/catalog': 'Каталог',
-  '/catalog/boilers_ocean_flat': 'Водонагрівачі OCEAN FLAT',
+  '/catalog/ocean_flat': 'Водонагрівачі OCEAN FLAT',
 };
 
 export const navbarLinks = [
