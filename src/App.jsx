@@ -34,35 +34,26 @@ const App = () => {
         <Header />
         <main>
           <Routes>
-            <Route path="/masterok/registration" element={<Registration />} />
-            <Route path="/masterok/login" element={<Login />} />
-            <Route path="/masterok/" element={<Home />} />
-            <Route path="/masterok/catalog" element={<Catalog />} />
-            {/* <Route path="/masterok/catalog/:category" element={<Catalog />} /> */}
+            <Route path="/registration" element={<Registration />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/catalog" element={<Catalog />} />
+            {/* <Route path="/catalog/:category" element={<Catalog />} /> */}
+            <Route path="/catalog/:subcategory" element={<Catalog />} />
             <Route
-              path="/masterok/catalog/:subcategory"
-              element={<Catalog />}
-            />
-            <Route
-              path="/masterok/catalog/:subcategory/:productId"
+              path="/catalog/:subcategory/:productId"
               element={<CardInfo />}
             />
-            <Route path="/masterok/basket" element={<Basket />} />
-            <Route path="/masterok/order" element={<Order />} />
-            <Route path="/masterok/favorites" element={<Favorites />} />
-            <Route path="/masterok/about" element={<About />}></Route>
-            <Route path="/masterok/contacts" element={<Contacts />}></Route>
-            <Route
-              path="/masterok/delivery-info"
-              element={<DeliveryInfo />}
-            ></Route>
-            <Route
-              path="/masterok/sale"
-              element={<DiscountedProducts />}
-            ></Route>
-            <Route path="/masterok/novelty" element={<Novelty />}></Route>
+            <Route path="/basket" element={<Basket />} />
+            <Route path="/order" element={<Order />} />
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/about" element={<About />}></Route>
+            <Route path="/contacts" element={<Contacts />}></Route>
+            <Route path="/delivery-info" element={<DeliveryInfo />}></Route>
+            <Route path="/sale" element={<DiscountedProducts />}></Route>
+            <Route path="/novelty" element={<Novelty />}></Route>
 
-            <Route path="/masterok/search" element={<SearchList />}></Route>
+            <Route path="/search" element={<SearchList />}></Route>
           </Routes>
         </main>
         <Footer />

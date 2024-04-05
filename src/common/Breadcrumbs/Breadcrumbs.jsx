@@ -9,7 +9,7 @@ const Breadcrumbs = () => {
   const location = useLocation();
   const pathnameParts = location.pathname.split('/').filter(Boolean);
   const navigate = useNavigate();
-  const navigationHome = () => navigate('/masterok');
+  const navigationHome = () => navigate('/');
 
   const handleGoHome = () => {
     navigationHome();

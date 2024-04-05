@@ -23,14 +23,14 @@ const CategoryMenu = forwardRef(
     const handleCategoryClick = (category) => {
       dispatch(selectCategory(category.name));
       dispatch(selectSubcategory(null));
-      navigate(`/masterok/catalog/${category.linkName}`);
+      navigate(`/catalog/${category.linkName}`);
       closeMenu();
     };
 
     const handleSubcategoryClick = (subcategory) => {
       dispatch(selectSubcategory(subcategory.name));
       dispatch(selectCategory(null));
-      navigate(`/masterok/catalog/${subcategory.linkName}`);
+      navigate(`/catalog/${subcategory.linkName}`);
       closeMenu();
     };
 

@@ -26,7 +26,7 @@ const CardProduct = ({
   dateAdded,
 }) => {
   const navigate = useNavigate();
-  const navigationBasket = () => navigate('/masterok/basket');
+  const navigationBasket = () => navigate('/basket');
 
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
@@ -97,12 +97,12 @@ const CardProduct = ({
         svgColor="#f05a00"
         onClick={handleAddToFavotites}
       />
-      <Link to={`/masterok/catalog/${subcategoryLinkName}/${id}`}>
+      <Link to={`/catalog/${subcategoryLinkName}/${id}`}>
         <img src={images[0]} alt={alt} />
       </Link>
       <div className="cardProductInfo">
         <p>Код: {id}</p>
-        <Link to={`/masterok/catalog/${subcategoryLinkName}/${id}`}>
+        <Link to={`/catalog/${subcategoryLinkName}/${id}`}>
           <h3>{title}</h3>
         </Link>
         <p

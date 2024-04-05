@@ -12,8 +12,8 @@ const UserBox = () => {
   const favoriteProducts = useSelector((store) => store.user.favoriteProducts);
 
   const navigate = useNavigate();
-  const navigationBasket = () => navigate('/masterok/basket');
-  const navigationFavorites = () => navigate('/masterok/favorites');
+  const navigationBasket = () => navigate('/basket');
+  const navigationFavorites = () => navigate('/favorites');
 
   const isMobileDevice = useMediaQuery({ maxWidth: 768 });
 

@@ -14,16 +14,16 @@ const MobileMenu = forwardRef(
     const navigate = useNavigate();
 
     const navigationHome = () => {
-      navigate('/masterok');
+      navigate('/');
       closeMenu();
     };
     const navigationFavorites = () => {
-      navigate('/masterok/favorites');
+      navigate('/favorites');
       closeMenu();
     };
 
     const navigationStock = () => {
-      navigate('/masterok/sale');
+      navigate('/sale');
       closeMenu();
     };
 

@@ -25,8 +25,8 @@ const ControlBlock = () => {
   const categoryMenuRef = useRef(null);
   const mobileMenuRef = useRef(null);
 
-  const navigationHome = () => navigate('/masterok');
-  const navigationSearchList = () => navigate('/masterok/search');
+  const navigationHome = () => navigate('/');
+  const navigationSearchList = () => navigate('/search');
 
   const [searchValue, setSearchValue] = useState('');
   const [showMobileMenu, setShowMobileMenu] = useState(false);

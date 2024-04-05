@@ -11,8 +11,8 @@ import SvgIcon from '../../common/SvgIcon';
 
 const Basket = () => {
   const navigate = useNavigate();
-  const handleOrder = () => navigate('/masterok/order');
-  const handlecontinueShopping = () => navigate('/masterok');
+  const handleOrder = () => navigate('/order');
+  const handlecontinueShopping = () => navigate('/');
 
   const basketProducts = useSelector((store) => store.user.basketProducts);
 

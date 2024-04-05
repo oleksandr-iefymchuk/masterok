@@ -441,25 +441,25 @@ export const banners = [
   {
     title: 'ТОП-товари',
     image: banner,
-    route: '/masterok/tools',
+    route: '/tools',
     class: 'tools',
   },
   {
     title: 'Акції',
     image: banner2,
-    route: '/masterok/sale',
+    route: '/sale',
     class: 'discountedProduct',
   },
   {
     title: 'Новинки',
     image: banner3,
-    route: '/masterok/novelty',
+    route: '/novelty',
     class: 'novelty',
   },
   {
     title: 'Популярне',
     image: banner4,
-    route: '/masterok/popular',
+    route: '/popular',
     class: 'popular',
   },
 ];
@@ -477,52 +477,52 @@ export const BUTTON_LABELS = {
 };
 
 export const breadcrumbLinks = {
-  '/masterok': 'Головна',
-  '/masterok/about': 'Про компанію',
-  '/masterok/contacts': 'Контактна інформація',
-  '/masterok/sale': 'Знижки',
-  '/masterok/novelty': 'Новинки',
-  '/masterok/delivery-info': 'Умови оплати та доставки',
-  '/masterok/favorites': 'Список бажань',
-  '/masterok/basket': 'Кошик',
-  '/masterok/catalog': 'Каталог',
-  '/masterok/catalog/boilers_ocean_flat': 'Водонагрівачі OCEAN FLAT',
+  '/': 'Головна',
+  '/about': 'Про компанію',
+  '/contacts': 'Контактна інформація',
+  '/sale': 'Знижки',
+  '/novelty': 'Новинки',
+  '/delivery-info': 'Умови оплати та доставки',
+  '/favorites': 'Список бажань',
+  '/basket': 'Кошик',
+  '/catalog': 'Каталог',
+  '/catalog/boilers_ocean_flat': 'Водонагрівачі OCEAN FLAT',
 };
 
 export const navbarLinks = [
   {
-    link: '/masterok/',
+    link: '/',
     name: 'Головна',
   },
   {
-    link: '/masterok/about',
+    link: '/about',
     name: 'Про компанію',
   },
   {
-    link: '/masterok/sale',
+    link: '/sale',
     name: 'Знижки',
   },
   {
-    link: '/masterok/novelty',
+    link: '/novelty',
     name: 'Новинки',
   },
   {
-    link: '/masterok/delivery-info',
+    link: '/delivery-info',
     name: 'Умови оплати та доставки',
   },
 ];
 
 export const foterNavLinks = [
   {
-    link: '/masterok/about',
+    link: '/about',
     name: 'Про компанію',
   },
   {
-    link: '/masterok/contacts',
+    link: '/contacts',
     name: 'Контакти',
   },
   {
-    link: '/masterok/delivery-info',
+    link: '/delivery-info',
     name: 'Умови оплати та доставки',
   },
 ];
