@@ -32,14 +32,12 @@ import id27928_27929_27930_2 from './assets/boilers/ocean_flat/27928_27929_27930
 import id27928_27929_27930_3 from './assets/boilers/ocean_flat/27928_27929_27930_3.webp';
 import id27928_27929_27930_4 from './assets/boilers/ocean_flat/27928_27929_27930_4.webp';
 import id27928_27929_27930_5 from './assets/boilers/ocean_flat/27928_27929_27930_5.webp';
-import id27928_27929_27930_6 from './assets/boilers/ocean_flat/27928_27929_27930_6.webp';
 
 import id37188_37190_37191_37192_37193_37194 from './assets/boilers/ocean_cube/37188_37190_37191_37192_37193_37194.webp';
 import id37188_37190_37191_37192_37193_37194_2 from './assets/boilers/ocean_cube/37188_37190_37191_37192_37193_37194_2.webp';
 import id37188_37190_37191_37192_37193_37194_3 from './assets/boilers/ocean_cube/37188_37190_37191_37192_37193_37194_3.webp';
 import id37188_37190_37191_37192_37193_37194_4 from './assets/boilers/ocean_cube/37188_37190_37191_37192_37193_37194_4.webp';
 import id37188_37190_37191_37192_37193_37194_5 from './assets/boilers/ocean_cube/37188_37190_37191_37192_37193_37194_5.webp';
-import id37188_37190_37191_37192_37193_37194_6 from './assets/boilers/ocean_cube/37188_37190_37191_37192_37193_37194_6.webp';
 
 import toolset from './assets/subcategories/toolset.jpg';
 import screwdrivers from './assets/subcategories/screwdrivers.jpg';
@@ -92,7 +90,6 @@ export const categories = [
         name: 'Водонагрівачі Новатек',
         linkName: 'novatek',
         image: novatek,
-        types: [{ name: 'Серия мокрый ТЕН' }, { name: 'Серия сухой ТЕН' }],
       },
     ],
   },
@@ -155,9 +152,9 @@ export const mockedProductsList = [
     ],
     alt: 'Бойлер OCEAN FLAT 80л 2,0 КВт эмалированный бак сухой ТЭН',
     title: 'Бойлер OCEAN FLAT 80л 2,0 КВт эмалированный бак сухой ТЭН',
-    price: 216,
+    price: 8156,
     quantity: 0,
-    discount: 10,
+    discount: 0,
     subcategory: 'Водонагрівачі OCEAN FLAT',
     dateAdded: '2024-01-19',
   },
@@ -186,7 +183,6 @@ export const mockedProductsList = [
       id27928_27929_27930_3,
       id27928_27929_27930_4,
       id27928_27929_27930_5,
-      id27928_27929_27930_6,
     ],
     alt: 'Бойлер OCEAN FLAT 50л 2,0 КВт эмалированный бак мокрый ТЭН',
     title: 'Бойлер OCEAN FLAT 50л 2,0 КВт эмалированный бак мокрый ТЭН',
@@ -204,7 +200,6 @@ export const mockedProductsList = [
       id27928_27929_27930_3,
       id27928_27929_27930_4,
       id27928_27929_27930_5,
-      id27928_27929_27930_6,
     ],
     alt: 'Бойлер OCEAN FLAT 80л 2,0 КВт эмалированный бак мокрый ТЭН',
     title: 'Бойлер OCEAN FLAT 80л 2,0 КВт эмалированный бак мокрый ТЭН',
@@ -222,7 +217,6 @@ export const mockedProductsList = [
       id27928_27929_27930_3,
       id27928_27929_27930_4,
       id27928_27929_27930_5,
-      id27928_27929_27930_6,
     ],
     alt: 'Бойлер OCEAN FLAT 100л 2,0 КВт эмалированный бак мокрый ТЭН',
     title: 'Бойлер OCEAN FLAT 100л 2,0 КВт эмалированный бак мокрый ТЭН',
@@ -240,7 +234,6 @@ export const mockedProductsList = [
       id37188_37190_37191_37192_37193_37194_3,
       id37188_37190_37191_37192_37193_37194_4,
       id37188_37190_37191_37192_37193_37194_5,
-      id37188_37190_37191_37192_37193_37194_6,
     ],
     alt: 'Бойлер OCEAN 50л мокрый тен + УЗО CUBE RZF50D-4 ET+WT',
     title: 'Бойлер OCEAN 50л мокрый тен + УЗО CUBE RZF50D-4 ET+WT',
@@ -258,7 +251,6 @@ export const mockedProductsList = [
       id37188_37190_37191_37192_37193_37194_3,
       id37188_37190_37191_37192_37193_37194_4,
       id37188_37190_37191_37192_37193_37194_5,
-      id37188_37190_37191_37192_37193_37194_6,
     ],
     alt: 'Бойлер OCEAN 80л мокрый тен + УЗО CUBE RZF80D-4 ET+WT',
     title: 'Бойлер OCEAN 80л мокрый тен + УЗО CUBE RZF80D-4 ET+WT',
@@ -276,7 +268,6 @@ export const mockedProductsList = [
       id37188_37190_37191_37192_37193_37194_3,
       id37188_37190_37191_37192_37193_37194_4,
       id37188_37190_37191_37192_37193_37194_5,
-      id37188_37190_37191_37192_37193_37194_6,
     ],
     alt: 'Бойлер OCEAN 100л мокрый тен + УЗО CUBE RZF100D-4 ET+WT',
     title: 'Бойлер OCEAN 100л мокрый тен + УЗО CUBE RZF100D-4 ET+WT',
@@ -294,7 +285,6 @@ export const mockedProductsList = [
       id37188_37190_37191_37192_37193_37194_3,
       id37188_37190_37191_37192_37193_37194_4,
       id37188_37190_37191_37192_37193_37194_5,
-      id37188_37190_37191_37192_37193_37194_6,
     ],
     alt: 'Бойлер OCEAN 50л сухой тен+ УЗО CUBE RZF50D-4 ET+DT',
     title: 'Бойлер OCEAN 50л сухой тен+ УЗО CUBE RZF50D-4 ET+DT',
@@ -312,7 +302,6 @@ export const mockedProductsList = [
       id37188_37190_37191_37192_37193_37194_3,
       id37188_37190_37191_37192_37193_37194_4,
       id37188_37190_37191_37192_37193_37194_5,
-      id37188_37190_37191_37192_37193_37194_6,
     ],
     alt: 'Бойлер OCEAN 80л сухой тен + УЗО CUBE RZF80D-4 ET+DT',
     title: 'Бойлер OCEAN 80л сухой тен + УЗО CUBE RZF80D-4 ET+DT',
@@ -330,7 +319,6 @@ export const mockedProductsList = [
       id37188_37190_37191_37192_37193_37194_3,
       id37188_37190_37191_37192_37193_37194_4,
       id37188_37190_37191_37192_37193_37194_5,
-      id37188_37190_37191_37192_37193_37194_6,
     ],
     alt: 'Бойлер OCEAN 100л сухой тен + УЗО CUBE RZF100D-4 ET+DT',
     title: 'Бойлер OCEAN 100л сухой тен + УЗО CUBE RZF100D-4 ET+DT',

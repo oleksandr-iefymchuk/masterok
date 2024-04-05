@@ -27,8 +27,12 @@
     }
   }
 
-  .pagination {
+  .sortListWrapper {
     width: 100%;
+
+    .sortListBlock {
+      width: 100%;
+    }
 
     .products {
       width: 100%;

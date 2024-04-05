@@ -44,6 +44,12 @@ const ControlBlock = () => {
   };
 
   useEffect(() => {
+    if (showMobileMenu) {
+      document.body.classList.add('mobileMenuOpen');
+    } else {
+      document.body.classList.remove('mobileMenuOpen');
+    }
+
     const handleClickOutside = (event) => {
       if (
         mobileMenuRef.current &&
@@ -58,7 +64,7 @@ const ControlBlock = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [mobileMenuRef]);
+  }, [mobileMenuRef, showMobileMenu]);
 
   const toggleMobileMenu = () => {
     setShowMobileMenu((prevState) => !prevState);

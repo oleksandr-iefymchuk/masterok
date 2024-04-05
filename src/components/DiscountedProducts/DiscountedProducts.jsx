@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import './DiscountedProducts.scss';
 import Breadcrumbs from '../../common/Breadcrumbs/Breadcrumbs';
-import Pagination from '../Pagination/Pagination';
+import SortList from '../../common/SortList/SortList';
 
 const DiscountedProducts = () => {
   const products = useSelector((state) => state.products);
@@ -12,7 +12,7 @@ const DiscountedProducts = () => {
     <div className="discountedProducts">
       <Breadcrumbs />
       <h2>Товари зі знижкою</h2>
-      <Pagination products={discountedProducts} />
+      <SortList products={discountedProducts}></SortList>
     </div>
   );
 };

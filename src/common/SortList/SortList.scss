@@ -1,0 +1,25 @@
+.sortListWrapper {
+  .sortListBlock {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 auto;
+
+    .sortListOptions {
+      margin-top: 15px;
+      padding: 5px 15px;
+      border-radius: 5px;
+      border: 2px solid #d9d9d9;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .sortListWrapper {
+    .sortListBlock {
+      .sortListOptions {
+        padding: 6px 2px;
+      }
+    }
+  }
+}

@@ -16,6 +16,12 @@ const CatalogBatton = ({
   const [showCategoryMenu, setShowCategoryMenu] = useState(false);
 
   useEffect(() => {
+    if (showCategoryMenu) {
+      document.body.classList.add('mobileMenuOpen');
+    } else {
+      document.body.classList.remove('mobileMenuOpen');
+    }
+
     const handleClickOutside = (event) => {
       if (
         refProp.current &&
@@ -30,7 +36,7 @@ const CatalogBatton = ({
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [refProp]);
+  }, [refProp, showCategoryMenu]);
 
   const toggleCategoryMenu = () => {
     setShowCategoryMenu((prevState) => !prevState);

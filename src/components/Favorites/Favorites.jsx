@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import './Favorites.scss';
 
-import Pagination from '../Pagination/Pagination';
 import Breadcrumbs from '../../common/Breadcrumbs/Breadcrumbs';
 import SvgIcon from '../../common/SvgIcon';
+import SortList from '../../common/SortList/SortList';
 
 const Favorites = () => {
   const favoriteProductsId = useSelector(
@@ -23,7 +23,7 @@ const Favorites = () => {
         Кількість товарів: {favoriteProducts.length}{' '}
       </p>
       {favoriteProducts.length > 0 ? (
-        <Pagination products={favoriteProducts} />
+        <SortList products={favoriteProducts}></SortList>
       ) : (
         <div className="emptyBasket">
           <SvgIcon

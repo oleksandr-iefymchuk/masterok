@@ -4,7 +4,7 @@ import './SearchList.scss';
 import questionMark from '../../assets/question-mark.png';
 
 import ButtonWrapper from '../Button/Button';
-import Pagination from '../../components/Pagination/Pagination';
+import SortList from '../SortList/SortList';
 
 const SearchList = () => {
   const searchValue = useSelector((state) => state.app.searchValue);
@@ -39,7 +39,7 @@ const SearchList = () => {
             Результати пошуку &quot;
             <span className="searchValue">{searchValue}</span>&quot;
           </h2>
-          <Pagination products={filteredProducts} />
+          <SortList products={filteredProducts}></SortList>
         </Fragment>
       ) : (
         <div className="emptySearchList">

@@ -37,4 +37,8 @@ body {
       }
     }
   }
+
+  body.mobileMenuOpen {
+    overflow: hidden;
+  }
 }
