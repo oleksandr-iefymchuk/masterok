@@ -5,7 +5,7 @@ import './Home.scss';
 
 import Banner from './components/Banner/Banner';
 import ButtonWrapper from '../../common/Button/Button';
-import ProductList from '../ProductList/ProductList';
+import ProductList from '../../common/ProductList/ProductList';
 
 import { BUTTON_LABELS, categories } from '../../constants';
 import CatalogBatton from '../Catalog/components/CatalogBatton/CatalogBatton';

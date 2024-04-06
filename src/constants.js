@@ -53,7 +53,7 @@ import jigsaws from './assets/subcategories/jigsaws.jpg';
 
 export const categories = [
   {
-    name: 'Бойлери',
+    name: 'Водонагрівачі',
     linkName: 'boilers',
     subcategories: [
       {
@@ -140,6 +140,7 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Водонагрівачі OCEAN FLAT',
     dateAdded: '2024-03-23',
+    param: { brand: 'OCEAN', capacity: 50 },
   },
   {
     id: '30348',
@@ -486,6 +487,7 @@ export const breadcrumbLinks = {
   '/favorites': 'Список бажань',
   '/basket': 'Кошик',
   '/catalog': 'Каталог',
+  '/catalog/boilers': 'Водонагрівачі',
   '/catalog/ocean_flat': 'Водонагрівачі OCEAN FLAT',
 };
 

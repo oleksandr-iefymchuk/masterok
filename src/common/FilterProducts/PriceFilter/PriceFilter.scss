@@ -1,0 +1,29 @@
+.priceFilter {
+  text-align: left;
+  .priceInputs {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    .minPriceInput,
+    .maxPriceInput {
+      padding-left: 5px;
+      border: 1px solid #eaedf7;
+      border-radius: 5px;
+    }
+    ::before {
+      border: none;
+    }
+
+    .btnPriceFilter {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  .rangeSlider {
+    display: block;
+    width: 200px;
+    margin: 5px auto;
+  }
+}

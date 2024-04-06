@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import './ProductList.scss';
 
-import CardProduct from '../../common/CardProduct/CardProduct';
+import CardProduct from '../CardProduct/CardProduct';
 
 const ProductList = ({ products }) => {
   return (

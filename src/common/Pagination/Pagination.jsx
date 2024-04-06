@@ -1,12 +1,12 @@
 import './Pagination.scss';
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import ButtonWrapper from '../../common/Button/Button';
+import ButtonWrapper from '../Button/Button';
 import ProductList from '../ProductList/ProductList';
 
 const Pagination = ({ products }) => {
   const maxButtons = 3;
-  const itemsPerPage = 10;
+  const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(products.length / itemsPerPage);

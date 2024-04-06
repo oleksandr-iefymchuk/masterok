@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 import './SortList.scss';
 
-import Pagination from '../../components/Pagination/Pagination';
+import Pagination from '../../common/Pagination/Pagination';
+import FilterProducts from '../FilterProducts/FilterProducts';
 
 const SortList = ({ products }) => {
   const [sortType, setSortType] = useState('');
