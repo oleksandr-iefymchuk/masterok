@@ -1,12 +1,13 @@
 import { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import PropTypes from 'prop-types';
-
 import './SortList.scss';
 
 import Pagination from '../../common/Pagination/Pagination';
-import FilterProducts from '../FilterProducts/FilterProducts';
+import ButtonWrapper from '../Button/Button';
 
-const SortList = ({ products }) => {
+const SortList = ({ products, setShowFilterMenu }) => {
+  const isMobileDevice = useMediaQuery({ maxWidth: 1024 });
   const [sortType, setSortType] = useState('');
 
   const handleSortChange = (e) => {
@@ -30,11 +31,24 @@ const SortList = ({ products }) => {
     }
   };
 
+  const toggleFilterMenu = () => {
+    setShowFilterMenu((prevState) => !prevState);
+  };
+
   const sortedProducts = sortProducts(sortType);
   return (
     <div className="sortListWrapper">
       {products.length > 0 && (
         <div className="sortListBlock">
+          {isMobileDevice && (
+            <ButtonWrapper
+              buttonClassName="filterBtn"
+              icon="filter"
+              buttonText="Фільтр"
+              onClick={toggleFilterMenu}
+            />
+          )}
+
           <select
             className="sortListOptions"
             value={sortType}
@@ -56,6 +70,7 @@ const SortList = ({ products }) => {
 
 SortList.propTypes = {
   products: PropTypes.array.isRequired,
+  setShowFilterMenu: PropTypes.func,
 };
 
 export default SortList;

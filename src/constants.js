@@ -140,7 +140,7 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Водонагрівачі OCEAN FLAT',
     dateAdded: '2024-03-23',
-    param: { brand: 'OCEAN', capacity: 50 },
+    param: { Бренд: 'OCEAN', Ємність: 50, 'Форма водонагрівача': 'Плоский' },
   },
   {
     id: '30348',
@@ -158,6 +158,7 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Водонагрівачі OCEAN FLAT',
     dateAdded: '2024-01-19',
+    param: { Бренд: 'OCEAN', Ємність: 80, 'Форма водонагрівача': 'Плоский' },
   },
   {
     id: '30349',
@@ -175,6 +176,7 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Водонагрівачі OCEAN FLAT',
     dateAdded: '2022-07-05',
+    param: { Бренд: 'OCEAN', Ємність: 100, 'Форма водонагрівача': 'Плоский' },
   },
   {
     id: '27928',
@@ -192,6 +194,7 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Водонагрівачі OCEAN FLAT',
     dateAdded: '2024-01-19',
+    param: { Бренд: 'OCEAN', Ємність: 50, 'Форма водонагрівача': 'Плоский' },
   },
   {
     id: '27929',
@@ -209,6 +212,7 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Водонагрівачі OCEAN FLAT',
     dateAdded: '2023-01-19',
+    param: { Бренд: 'OCEAN', Ємність: 80, 'Форма водонагрівача': 'Плоский' },
   },
   {
     id: '27930',
@@ -226,6 +230,7 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Водонагрівачі OCEAN FLAT',
     dateAdded: '2024-01-19',
+    param: { Бренд: 'OCEAN', Ємність: 100, 'Форма водонагрівача': 'Плоский' },
   },
   {
     id: '37188',
@@ -243,6 +248,7 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Водонагрівачі OCEAN CUBE',
     dateAdded: '2024-03-29',
+    param: { Бренд: 'OCEAN', Ємність: 50, 'Форма водонагрівача': 'Квадратний' },
   },
   {
     id: '37190',
@@ -260,6 +266,7 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Водонагрівачі OCEAN CUBE',
     dateAdded: '2024-03-29',
+    param: { Бренд: 'OCEAN', Ємність: 80, 'Форма водонагрівача': 'Квадратний' },
   },
   {
     id: '37191',
@@ -277,6 +284,11 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Водонагрівачі OCEAN CUBE',
     dateAdded: '2024-03-29',
+    param: {
+      Бренд: 'OCEAN',
+      Ємність: 100,
+      'Форма водонагрівача': 'Квадратний',
+    },
   },
   {
     id: '37192',
@@ -294,6 +306,7 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Водонагрівачі OCEAN CUBE',
     dateAdded: '2024-03-29',
+    param: { Бренд: 'OCEAN', Ємність: 50, 'Форма водонагрівача': 'Квадратний' },
   },
   {
     id: '37193',
@@ -311,6 +324,7 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Водонагрівачі OCEAN CUBE',
     dateAdded: '2024-03-29',
+    param: { Бренд: 'OCEAN', Ємність: 80, 'Форма водонагрівача': 'Квадратний' },
   },
   {
     id: '37194',
@@ -328,6 +342,11 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Водонагрівачі OCEAN CUBE',
     dateAdded: '2024-03-29',
+    param: {
+      Бренд: 'OCEAN',
+      Ємність: 100,
+      'Форма водонагрівача': 'Квадратний',
+    },
   },
   {
     id: '301427688',
@@ -339,6 +358,7 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Набір інструментів',
     dateAdded: '2023-12-29',
+    param: { Бренд: 'WMC' },
   },
   {
     id: '270450021',
@@ -351,6 +371,7 @@ export const mockedProductsList = [
     discount: 3,
     subcategory: 'Набір інструментів',
     dateAdded: '2024-03-07',
+    param: { Бренд: 'Intertool' },
   },
   {
     id: '301427768',
@@ -362,6 +383,7 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Набір інструментів',
     dateAdded: '2022-02-21',
+    param: { Бренд: 'WMC' },
   },
   {
     id: '57203739',
@@ -373,6 +395,7 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Жилети',
     dateAdded: '2023-10-15',
+    param: { Бренд: 'Lavita' },
   },
   {
     id: '373561911',
@@ -384,6 +407,7 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Штани',
     dateAdded: '2022-11-18',
+    param: { Бренд: 'Ardon Cool' },
   },
   {
     id: '373562781',
@@ -395,6 +419,7 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Куртки',
     dateAdded: '2023-09-12',
+    param: { Бренд: 'Insight WALTER' },
   },
   {
     id: '197259',
@@ -406,6 +431,7 @@ export const mockedProductsList = [
     discount: 5,
     subcategory: 'Шурупокрути',
     dateAdded: '2023-12-17',
+    param: { Бренд: 'Зенит' },
   },
   {
     id: '215226661',
@@ -417,6 +443,7 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Шліфмашини',
     dateAdded: '2023-07-02',
+    param: { Бренд: 'Metabo' },
   },
   {
     id: '256597571',
@@ -428,6 +455,7 @@ export const mockedProductsList = [
     discount: 0,
     subcategory: 'Електролобзики',
     dateAdded: '2023-10-20',
+    param: { Бренд: 'Tekhmann' },
   },
 ];
 

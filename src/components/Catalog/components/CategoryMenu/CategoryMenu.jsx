@@ -20,18 +20,18 @@ const CategoryMenu = forwardRef(
     const [isHovered, setIsHovered] = useState(false);
     const isMobileDevice = useMediaQuery({ maxWidth: 1024 });
 
-    const handleCategoryClick = (category) => {
+    const handleCategoryClick = async (category) => {
       dispatch(selectCategory(category.name));
       dispatch(selectSubcategory(null));
+      await closeMenu();
       navigate(`/catalog/${category.linkName}`);
-      closeMenu();
     };
 
-    const handleSubcategoryClick = (subcategory) => {
+    const handleSubcategoryClick = async (subcategory) => {
       dispatch(selectSubcategory(subcategory.name));
       dispatch(selectCategory(null));
+      await closeMenu();
       navigate(`/catalog/${subcategory.linkName}`);
-      closeMenu();
     };
 
     const handleCategoryHover = (category) => {

@@ -27,3 +27,20 @@
     margin: 5px auto;
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .priceFilter {
+    padding: 0 15px;
+    .priceInputs {
+      justify-content: space-evenly;
+
+      .btnPriceFilter {
+        width: 105px;
+      }
+    }
+
+    .rangeSlider {
+      width: 90%;
+    }
+  }
+}

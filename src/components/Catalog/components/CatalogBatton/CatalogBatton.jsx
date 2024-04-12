@@ -14,6 +14,7 @@ const CatalogBatton = ({
   closeMenu,
 }) => {
   const [showCategoryMenu, setShowCategoryMenu] = useState(false);
+  console.log('showCategoryMenu:', showCategoryMenu);
 
   useEffect(() => {
     if (showCategoryMenu) {

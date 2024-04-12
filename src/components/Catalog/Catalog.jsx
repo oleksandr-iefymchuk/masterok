@@ -11,8 +11,9 @@ const Catalog = () => {
     (store) => store.app.selectedSubcategory,
   );
 
-  const [filteredProducts, setFilteredProducts] = useState([]);
   const products = useSelector((state) => state.products);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [isShowFilterMenu, setShowFilterMenu] = useState(false);
 
   useEffect(() => {
     if (activeCategory) {
@@ -35,16 +36,20 @@ const Catalog = () => {
       );
       setFilteredProducts(filteredProducts);
     }
-  }, [activeCategory, activeSubcategory, products]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeCategory, activeSubcategory]);
 
   return (
     <div className="catalogWrapper">
       <Breadcrumbs />
       <h2>{activeCategory ? activeCategory : activeSubcategory}</h2>
-      <FilterProducts products={filteredProducts}></FilterProducts>
-      {console.log('filteredProducts:', filteredProducts)}
-      {/* <SortList products={filteredProducts}></SortList> */}
+      <FilterProducts
+        products={filteredProducts}
+        isShowFilterMenu={isShowFilterMenu}
+        setShowFilterMenu={setShowFilterMenu}
+      ></FilterProducts>
     </div>
   );
 };
+
 export default Catalog;

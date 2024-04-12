@@ -48,22 +48,17 @@ const PriceFilter = ({ products, setFilteredProducts }) => {
     setMaxPrice(newMaxPrice);
   };
 
-  const filterProductsByPrice = (min, max) => {
+  const applyPriceFilter = () => {
     const filtered = products.filter(
-      (product) => product.price >= min && product.price <= max,
+      (product) => product.price >= minPrice && product.price <= maxPrice,
     );
     setFilteredProducts(filtered);
-  };
-
-  const applyPriceFilter = () => {
-    filterProductsByPrice(minPrice, maxPrice);
   };
 
   useEffect(() => {
     setMinPrice(getMinPrice());
     setMaxPrice(getMaxPrice());
-    setFilteredProducts(products);
-  }, [products, getMinPrice, getMaxPrice, setFilteredProducts]);
+  }, [getMinPrice, getMaxPrice]);
 
   return (
     <div className="priceFilter">
