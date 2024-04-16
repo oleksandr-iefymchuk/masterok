@@ -1,7 +1,7 @@
 .filterProductsWrapper {
   display: flex;
   position: relative;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 
   .filters {
@@ -81,6 +81,7 @@
         margin: 50px auto 30px auto;
         width: 250px;
         height: 40px;
+        padding: 15px;
         background-color: #008ec8;
         font-size: 16px;
       }

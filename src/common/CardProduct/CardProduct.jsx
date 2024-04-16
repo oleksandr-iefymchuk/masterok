@@ -130,12 +130,12 @@ const CardProduct = ({
           </div>
 
           <ButtonWrapper
-            buttonClassName={
+            buttonClassName={`${
               currentProduct.quantity <= 0 &&
               (!currentBasketProduct || currentBasketProduct.quantity <= 0)
                 ? 'disabledBuyButton'
                 : 'activeBuyButton'
-            }
+            } ${isInBasket ? 'inBasket' : ''}`}
             disabled={
               currentProduct.quantity <= 0 &&
               (!currentBasketProduct || currentBasketProduct.quantity <= 0)

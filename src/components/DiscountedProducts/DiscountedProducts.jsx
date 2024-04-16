@@ -1,18 +1,33 @@
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import './DiscountedProducts.scss';
 import Breadcrumbs from '../../common/Breadcrumbs/Breadcrumbs';
-import SortList from '../../common/SortList/SortList';
+import FilterProducts from '../../common/FilterProducts/FilterProducts';
 
 const DiscountedProducts = () => {
   const products = useSelector((state) => state.products);
-
   const discountedProducts = products.filter(({ discount }) => discount > 0);
+
+  const [isShowFilterMenu, setShowFilterMenu] = useState(false);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  useEffect(() => {
+    if (discountedProducts) {
+      setFilteredProducts(discountedProducts);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="discountedProducts">
       <Breadcrumbs />
       <h2>Товари зі знижкою</h2>
-      <SortList products={discountedProducts}></SortList>
+      <FilterProducts
+        products={filteredProducts}
+        isShowFilterMenu={isShowFilterMenu}
+        setShowFilterMenu={setShowFilterMenu}
+        showFilterButton={true}
+      />
     </div>
   );
 };

@@ -9,9 +9,14 @@ import { FormControlLabel, FormGroup } from '@mui/material';
 import { useMediaQuery } from 'react-responsive';
 import ButtonWrapper from '../Button/Button';
 
-const FilterProducts = ({ products, isShowFilterMenu, setShowFilterMenu }) => {
+const FilterProducts = ({
+  products,
+  isShowFilterMenu,
+  setShowFilterMenu,
+  showFilterButton,
+}) => {
   const isMobileDevice = useMediaQuery({ maxWidth: 1024 });
-  const [filteredProducts, setFilteredProducts] = useState(products);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedParams, setSelectedParams] = useState({});
   const filterRef = useRef(null);
 
@@ -78,7 +83,7 @@ const FilterProducts = ({ products, isShowFilterMenu, setShowFilterMenu }) => {
     setShowFilterMenu((prevState) => !prevState);
   };
 
-  function getProductsWordUkr(count) {
+  const getProductsWordUkr = (count) => {
     const cases = [2, 0, 1, 1, 1, 2];
     const titles = ['товар', 'товари', 'товарів'];
     return titles[
@@ -86,7 +91,7 @@ const FilterProducts = ({ products, isShowFilterMenu, setShowFilterMenu }) => {
         ? 2
         : cases[count % 10 < 5 ? count % 10 : 5]
     ];
-  }
+  };
 
   useEffect(() => {
     if (isShowFilterMenu) {
@@ -181,6 +186,7 @@ const FilterProducts = ({ products, isShowFilterMenu, setShowFilterMenu }) => {
       <SortList
         products={filteredProducts}
         setShowFilterMenu={setShowFilterMenu}
+        showFilterButton={showFilterButton}
       ></SortList>
     </div>
   );
@@ -298,6 +304,7 @@ FilterProducts.propTypes = {
   products: PropTypes.array.isRequired,
   isShowFilterMenu: PropTypes.bool,
   setShowFilterMenu: PropTypes.func,
+  showFilterButton: PropTypes.bool,
 };
 
 export default FilterProducts;

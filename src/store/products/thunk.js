@@ -1,5 +1,5 @@
 import { getProducts } from './actionCreators';
-import { mockedProductsList } from '../../constants';
+import { mockedProductsList } from '../../mock/mockedProductsList';
 
 const getProductsThunk = () => {
   return async (dispatch) => {

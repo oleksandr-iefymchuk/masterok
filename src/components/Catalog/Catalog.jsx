@@ -47,7 +47,8 @@ const Catalog = () => {
         products={filteredProducts}
         isShowFilterMenu={isShowFilterMenu}
         setShowFilterMenu={setShowFilterMenu}
-      ></FilterProducts>
+        showFilterButton={true}
+      />
     </div>
   );
 };

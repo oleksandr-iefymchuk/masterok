@@ -6,7 +6,11 @@ import './SortList.scss';
 import Pagination from '../../common/Pagination/Pagination';
 import ButtonWrapper from '../Button/Button';
 
-const SortList = ({ products, setShowFilterMenu }) => {
+const SortList = ({
+  products,
+  setShowFilterMenu,
+  showFilterButton = false,
+}) => {
   const isMobileDevice = useMediaQuery({ maxWidth: 1024 });
   const [sortType, setSortType] = useState('');
 
@@ -39,8 +43,12 @@ const SortList = ({ products, setShowFilterMenu }) => {
   return (
     <div className="sortListWrapper">
       {products.length > 0 && (
-        <div className="sortListBlock">
-          {isMobileDevice && (
+        <div
+          className={`sortListBlock ${
+            showFilterButton ? 'justifyBetween' : 'justifyEnd'
+          }`}
+        >
+          {isMobileDevice && showFilterButton && (
             <ButtonWrapper
               buttonClassName="filterBtn"
               icon="filter"
@@ -71,6 +79,7 @@ const SortList = ({ products, setShowFilterMenu }) => {
 SortList.propTypes = {
   products: PropTypes.array.isRequired,
   setShowFilterMenu: PropTypes.func,
+  showFilterButton: PropTypes.bool,
 };
 
 export default SortList;

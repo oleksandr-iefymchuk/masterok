@@ -1,0 +1,19 @@
+.cardInfoDescription {
+  color: #000;
+
+  .customTabList {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .description {
+    padding: 20px 5px;
+    p {
+      margin-bottom: 10px;
+    }
+
+    ul,
+    ol {
+      padding-left: 30px; /* Установка отступа слева для элементов списка */
+    }
+  }
+}

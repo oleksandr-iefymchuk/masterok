@@ -10,7 +10,6 @@ import ButtonWrapper from '../../../common/Button/Button';
 import { calculateDiscountedPrice } from '../../../helpers';
 
 const BasketItem = ({ id, images, alt, title, price, quantity, discount }) => {
-  console.log('discount:', discount);
   const dispatch = useDispatch();
   const basketProducts = useSelector((state) => state.user.basketProducts);
   const products = useSelector((state) => state.products);

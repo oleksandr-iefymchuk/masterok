@@ -17,6 +17,11 @@ const UserBox = () => {
 
   const isMobileDevice = useMediaQuery({ maxWidth: 768 });
 
+  const totalQuantity = basketProducts.reduce(
+    (sum, product) => sum + product.quantity,
+    0,
+  );
+
   return (
     <div className="userBox">
       {!isMobileDevice && (
@@ -39,7 +44,7 @@ const UserBox = () => {
       <Button
         buttonClassName="buttonBlock"
         icon="basket"
-        value={basketProducts.length}
+        value={totalQuantity}
         onClick={navigationBasket}
       />
     </div>
