@@ -47,9 +47,10 @@ const CardInfoDescription = ({ description, param }) => {
       ))}
     </table>
   );
-
   useEffect(() => {
-    fetch(`/src/mock/${description}`)
+    fetch(`../../../../../src/mock/${description}`)
+      // .then((res) => console.log(res))
+
       .then((res) => res.text())
       .then((markdown) => {
         setMarkdown(markdown);
