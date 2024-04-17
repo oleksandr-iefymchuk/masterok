@@ -48,7 +48,7 @@ const CardInfoDescription = ({ description, param }) => {
     </table>
   );
   useEffect(() => {
-    fetch(`../../../../../src/mock/${description}`)
+    fetch(`/public/markdown/${description}`)
       // .then((res) => console.log(res))
 
       .then((res) => res.text())
