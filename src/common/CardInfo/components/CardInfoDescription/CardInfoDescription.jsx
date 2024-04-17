@@ -49,7 +49,7 @@ const CardInfoDescription = ({ description, param }) => {
   );
 
   useEffect(() => {
-    fetch(`../../../../../public/markdown/${description}`)
+    fetch(`/markdown/${description}`)
       // .then((res) => console.log(res))
 
       .then((res) => res.text())
