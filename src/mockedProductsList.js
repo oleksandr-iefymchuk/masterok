@@ -1,30 +1,30 @@
-import p301427688 from '../assets/products/301427688.webp';
-import p301427768 from '../assets/products/301427768.webp';
-import p270450021 from '../assets/products/270450021.webp';
-import p57203739 from '../assets/products/57203739.webp';
-import p373561911 from '../assets/products/373561911.webp';
-import p373562781 from '../assets/products/373562781.webp';
-import p197259 from '../assets/products/197259.webp';
-import p215226661 from '../assets/products/215226661.webp';
-import p256597571 from '../assets/products/256597571.webp';
+import p301427688 from './assets/products/301427688.webp';
+import p301427768 from './assets/products/301427768.webp';
+import p270450021 from './assets/products/270450021.webp';
+import p57203739 from './assets/products/57203739.webp';
+import p373561911 from './assets/products/373561911.webp';
+import p373562781 from './assets/products/373562781.webp';
+import p197259 from './assets/products/197259.webp';
+import p215226661 from './assets/products/215226661.webp';
+import p256597571 from './assets/products/256597571.webp';
 
-import id30347_30348_30349 from '../assets/boilers/ocean_flat/30347_30348_30349.webp';
-import id30347_30348_30349_2 from '../assets/boilers/ocean_flat/30347_30348_30349_2.webp';
-import id30347_30348_30349_3 from '../assets/boilers/ocean_flat/30347_30348_30349_3.webp';
-import id30347_30348_30349_4 from '../assets/boilers/ocean_flat/30347_30348_30349_4.webp';
-import id30347_30348_30349_5 from '../assets/boilers/ocean_flat/30347_30348_30349_5.webp';
+import id30347_30348_30349 from './assets/boilers/ocean_flat/30347_30348_30349.webp';
+import id30347_30348_30349_2 from './assets/boilers/ocean_flat/30347_30348_30349_2.webp';
+import id30347_30348_30349_3 from './assets/boilers/ocean_flat/30347_30348_30349_3.webp';
+import id30347_30348_30349_4 from './assets/boilers/ocean_flat/30347_30348_30349_4.webp';
+import id30347_30348_30349_5 from './assets/boilers/ocean_flat/30347_30348_30349_5.webp';
 
-import id27928_27929_27930 from '../assets/boilers/ocean_flat/27928_27929_27930.webp';
-import id27928_27929_27930_2 from '../assets/boilers/ocean_flat/27928_27929_27930_2.webp';
-import id27928_27929_27930_3 from '../assets/boilers/ocean_flat/27928_27929_27930_3.webp';
-import id27928_27929_27930_4 from '../assets/boilers/ocean_flat/27928_27929_27930_4.webp';
-import id27928_27929_27930_5 from '../assets/boilers/ocean_flat/27928_27929_27930_5.webp';
+import id27928_27929_27930 from './assets/boilers/ocean_flat/27928_27929_27930.webp';
+import id27928_27929_27930_2 from './assets/boilers/ocean_flat/27928_27929_27930_2.webp';
+import id27928_27929_27930_3 from './assets/boilers/ocean_flat/27928_27929_27930_3.webp';
+import id27928_27929_27930_4 from './assets/boilers/ocean_flat/27928_27929_27930_4.webp';
+import id27928_27929_27930_5 from './assets/boilers/ocean_flat/27928_27929_27930_5.webp';
 
-import id37188_37190_37191_37192_37193_37194 from '../assets/boilers/ocean_cube/37188_37190_37191_37192_37193_37194.webp';
-import id37188_37190_37191_37192_37193_37194_2 from '../assets/boilers/ocean_cube/37188_37190_37191_37192_37193_37194_2.webp';
-import id37188_37190_37191_37192_37193_37194_3 from '../assets/boilers/ocean_cube/37188_37190_37191_37192_37193_37194_3.webp';
-import id37188_37190_37191_37192_37193_37194_4 from '../assets/boilers/ocean_cube/37188_37190_37191_37192_37193_37194_4.webp';
-import id37188_37190_37191_37192_37193_37194_5 from '../assets/boilers/ocean_cube/37188_37190_37191_37192_37193_37194_5.webp';
+import id37188_37190_37191_37192_37193_37194 from './assets/boilers/ocean_cube/37188_37190_37191_37192_37193_37194.webp';
+import id37188_37190_37191_37192_37193_37194_2 from './assets/boilers/ocean_cube/37188_37190_37191_37192_37193_37194_2.webp';
+import id37188_37190_37191_37192_37193_37194_3 from './assets/boilers/ocean_cube/37188_37190_37191_37192_37193_37194_3.webp';
+import id37188_37190_37191_37192_37193_37194_4 from './assets/boilers/ocean_cube/37188_37190_37191_37192_37193_37194_4.webp';
+import id37188_37190_37191_37192_37193_37194_5 from './assets/boilers/ocean_cube/37188_37190_37191_37192_37193_37194_5.webp';
 
 // import des from './description.md';
 

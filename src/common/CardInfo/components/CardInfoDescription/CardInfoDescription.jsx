@@ -48,15 +48,18 @@ const CardInfoDescription = ({ description, param }) => {
     </table>
   );
 
-  useEffect(() => {
-    fetch(`/markdown/${description}`)
-      // .then((res) => console.log(res))
+  const isLocalDevelopment =
+    window.location.hostname === 'localhost' ||
+    window.location.hostname === '127.0.0.1';
+  const markdownPath = isLocalDevelopment ? '/public/markdown/' : '/markdown/';
 
+  useEffect(() => {
+    fetch(`${markdownPath}${description}`)
       .then((res) => res.text())
       .then((markdown) => {
         setMarkdown(markdown);
       });
-  }, [description]);
+  }, [description, markdownPath]);
 
   return (
     <div className="cardInfoDescription">
