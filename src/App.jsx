@@ -1,7 +1,10 @@
+import './App.scss';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import './App.scss';
+import { useMediaQuery } from 'react-responsive';
+
+import { categories } from './constants';
 import { getProductsThunk } from './store/products/thunk';
 
 import Header from './components/Header/Header';
@@ -19,10 +22,12 @@ import Footer from './components/Footer/Footer';
 import Order from './components/Order/Order';
 import SearchList from './common/SearchList/SearchList';
 import Catalog from './components/Catalog/Catalog';
+import CategoryMenu from './common/CategoryMenu/CategoryMenu';
 import Contacts from './components/Contacts/Contacts';
 
 const App = () => {
   const dispatch = useDispatch();
+  const isMobileDevice = useMediaQuery({ maxWidth: 1024 });
 
   useEffect(() => {
     dispatch(getProductsThunk());
@@ -32,6 +37,7 @@ const App = () => {
     <>
       <Router>
         <Header />
+        {isMobileDevice && <CategoryMenu categories={categories} />}
         <main>
           <Routes>
             <Route path="/registration" element={<Registration />} />

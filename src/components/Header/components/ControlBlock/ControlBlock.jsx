@@ -1,20 +1,26 @@
-import { useState, useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import './ControlBlock.scss';
+import { Fragment, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
-import { searchProduct } from '../../../../store/appReduser/actionCreators';
-// import CategoryMenu from '../../../Catalog/components/CategoryMenu/CategoryMenu';
+import {
+  searchProduct,
+  toggleMobileMenu,
+} from '../../../../store/appReduser/actionCreators';
 
-import './ControlBlock.scss';
-import { PLACEHOLDER_LABELS, BUTTON_LABELS } from '../../../../constants';
+import {
+  PLACEHOLDER_LABELS,
+  BUTTON_LABELS,
+  categories,
+} from '../../../../constants';
 
 import Logo from './components/Logo/Logo';
 import UserBox from './components/UserBox/UserBox';
 import ButtonWrapper from '../../../../common/Button/Button';
 import InputWrapper from '../../../../common/Input/Input';
-import { categories } from '../../../../constants';
-import CatalogBatton from '../../../Catalog/components/CatalogBatton/CatalogBatton';
-import MobileMenu from './components/MobileMenu/MobileMenu';
+import CatalogBatton from '../../../../common/CatalogBatton/CatalogBatton';
+import MobileMenu from '../../../../common/MobileMenu/MobileMenu';
+// import CategoryMenu from '../../../Catalog/components/CategoryMenu/CategoryMenu';
 
 const ControlBlock = () => {
   const { BUTTON_SEARCH, BUTTON_CATALOG } = BUTTON_LABELS;
@@ -22,16 +28,13 @@ const ControlBlock = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const categoryMenuRef = useRef(null);
-  const mobileMenuRef = useRef(null);
+  const [searchValue, setSearchValue] = useState('');
 
   const navigationHome = () => navigate('/');
   const navigationSearchList = () => navigate('/search');
 
-  const [searchValue, setSearchValue] = useState('');
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
-
   const isMobileDevice = useMediaQuery({ maxWidth: 1024 });
+  const isShowMobileMenu = useSelector((state) => state.app.isShowMobileMenu);
 
   const handleSearchChange = (e) => {
     const { value } = e.target;
@@ -43,61 +46,32 @@ const ControlBlock = () => {
     navigationSearchList();
   };
 
-  useEffect(() => {
-    if (showMobileMenu) {
-      document.body.classList.add('mobileMenuOpen');
-    } else {
-      document.body.classList.remove('mobileMenuOpen');
-    }
-
-    const handleClickOutside = (event) => {
-      if (
-        mobileMenuRef.current &&
-        !mobileMenuRef.current.contains(event.target) &&
-        !event.target.closest('.mobileMenuButton')
-      ) {
-        setShowMobileMenu(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [mobileMenuRef, showMobileMenu]);
-
-  const toggleMobileMenu = () => {
-    setShowMobileMenu((prevState) => !prevState);
-  };
-
   return (
     <div className="controlBlockWrapper">
       <div className="controlBlock">
         <Logo onClick={navigationHome} />
 
         {isMobileDevice ? (
-          <ButtonWrapper
-            buttonClassName="mobileMenuButton"
-            icon={!showMobileMenu ? 'burger' : 'close'}
-            onClick={toggleMobileMenu}
-          />
+          <Fragment>
+            <ButtonWrapper
+              buttonClassName="mobileMenuButton"
+              icon={!isShowMobileMenu ? 'burger' : 'close'}
+              onClick={() => dispatch(toggleMobileMenu())}
+            />
+            <MobileMenu />
+          </Fragment>
         ) : (
-          <CatalogBatton
-            buttonClassName="catalogButton"
-            buttonText={BUTTON_CATALOG}
-            categories={categories}
-            refProp={categoryMenuRef}
-            isShowButtonText={!isMobileDevice}
-            iconBurger="menu"
-          />
+          <Fragment>
+            <CatalogBatton
+              buttonClassName="catalogButton"
+              buttonText={BUTTON_CATALOG}
+              categories={categories}
+              isShowButtonText={!isMobileDevice}
+              iconBurger="menu"
+            />
+            {/* <CategoryMenu categories={categories} /> */}
+          </Fragment>
         )}
-
-        <MobileMenu
-          isShowMobileMenu={showMobileMenu}
-          ref={mobileMenuRef}
-          onClick={toggleMobileMenu}
-          closeMenu={toggleMobileMenu}
-        />
 
         <div className="searchBar">
           <InputWrapper

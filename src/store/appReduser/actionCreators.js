@@ -10,9 +10,33 @@ const selectSubcategory = (subcategory) => ({
   payload: subcategory,
 });
 
+const toggleCategoryMenu = () => ({
+  type: storeActionType.TOGGLE_CATEGORY_MENU,
+});
+
+const closeCategoryMenu = () => ({
+  type: storeActionType.CLOSE_CATEGORY_MENU,
+});
+
+const toggleMobileMenu = () => ({
+  type: storeActionType.TOGGLE_MOBILE_MENU,
+});
+
+const closeMobileMenu = () => ({
+  type: storeActionType.CLOSE_MOBILE_MENU,
+});
+
 const searchProduct = (product) => ({
   type: storeActionType.SEARCH_PRODUCT,
   payload: product,
 });
 
-export { selectCategory, selectSubcategory, searchProduct };
+export {
+  selectCategory,
+  selectSubcategory,
+  toggleCategoryMenu,
+  closeCategoryMenu,
+  toggleMobileMenu,
+  closeMobileMenu,
+  searchProduct,
+};

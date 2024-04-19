@@ -12,6 +12,14 @@ body {
   font-weight: 400;
   background-color: #212526;
 
+  &.mobileMenuOpen {
+    overflow: hidden;
+  }
+
+  &.categoryMenuOpen {
+    overflow: hidden;
+  }
+
   #root {
     display: flex;
     flex-direction: column;
@@ -38,7 +46,7 @@ body {
     }
   }
 
-  body.mobileMenuOpen {
-    overflow: hidden;
-  }
+  // body.mobileMenuOpen {
+  //   overflow: hidden;
+  // }
 }

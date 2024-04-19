@@ -13,7 +13,6 @@ const Catalog = () => {
 
   const products = useSelector((state) => state.products);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [isShowFilterMenu, setShowFilterMenu] = useState(false);
 
   useEffect(() => {
     if (activeCategory) {
@@ -43,12 +42,7 @@ const Catalog = () => {
     <div className="catalogWrapper">
       <Breadcrumbs />
       <h2>{activeCategory ? activeCategory : activeSubcategory}</h2>
-      <FilterProducts
-        products={filteredProducts}
-        isShowFilterMenu={isShowFilterMenu}
-        setShowFilterMenu={setShowFilterMenu}
-        showFilterButton={true}
-      />
+      <FilterProducts products={filteredProducts} showFilterButton={true} />
     </div>
   );
 };

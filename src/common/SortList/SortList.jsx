@@ -35,10 +35,6 @@ const SortList = ({
     }
   };
 
-  const toggleFilterMenu = () => {
-    setShowFilterMenu((prevState) => !prevState);
-  };
-
   const sortedProducts = sortProducts(sortType);
   return (
     <div className="sortListWrapper">
@@ -53,7 +49,7 @@ const SortList = ({
               buttonClassName="filterBtn"
               icon="filter"
               buttonText="Фільтр"
-              onClick={toggleFilterMenu}
+              onClick={setShowFilterMenu}
             />
           )}
 

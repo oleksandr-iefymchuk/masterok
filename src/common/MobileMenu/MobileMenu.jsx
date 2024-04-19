@@ -1,41 +1,61 @@
 import './MobileMenu.scss';
-import { forwardRef, useRef } from 'react';
-import { useSelector } from 'react-redux';
+import { Fragment, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ButtonWrapper from '../../../../../../common/Button/Button';
-import CatalogBatton from '../../../../../Catalog/components/CatalogBatton/CatalogBatton';
-import { categories, foterNavLinks } from '../../../../../../constants';
-import Logo from '../Logo/Logo';
 
-const MobileMenu = forwardRef(
-  ({ onClick, isShowMobileMenu, closeMenu }, ref) => {
-    const categoryMenuRef = useRef(null);
-    const navigate = useNavigate();
+import { categories, foterNavLinks } from '../../constants';
+import ButtonWrapper from '../Button/Button';
+import CatalogBatton from '../CatalogBatton/CatalogBatton';
+import Logo from '../../components/Header/components/ControlBlock/components/Logo/Logo';
+import {
+  closeCategoryMenu,
+  closeMobileMenu,
+  toggleMobileMenu,
+} from '../../store/appReduser/actionCreators';
 
-    const navigationHome = () => {
-      navigate('/');
-      closeMenu();
-    };
-    const navigationFavorites = () => {
-      navigate('/favorites');
-      closeMenu();
-    };
+const MobileMenu = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-    const navigationStock = () => {
-      navigate('/sale');
-      closeMenu();
-    };
+  const favoriteProducts = useSelector((store) => store.user.favoriteProducts);
+  const isShowMobileMenu = useSelector((state) => state.app.isShowMobileMenu);
 
-    const favoriteProducts = useSelector(
-      (store) => store.user.favoriteProducts,
-    );
+  const navigationHome = () => {
+    navigate('/');
+    dispatch(toggleMobileMenu());
+  };
 
-    return (
-      <div
-        className={`mobileMenu ${isShowMobileMenu ? 'show' : 'hide'}`}
-        ref={ref}
-      >
+  const navigationFavorites = () => {
+    navigate('/favorites');
+    dispatch(toggleMobileMenu());
+  };
+
+  const navigationStock = () => {
+    navigate('/sale');
+    dispatch(toggleMobileMenu());
+  };
+
+  const handleCloseMenu = () => {
+    dispatch(toggleMobileMenu());
+    dispatch(closeCategoryMenu());
+  };
+
+  useEffect(() => {
+    if (isShowMobileMenu) {
+      document.body.classList.add('mobileMenuOpen');
+    } else {
+      document.body.classList.remove('mobileMenuOpen');
+      document.body.classList.remove('categoryMenuOpen');
+    }
+  }, [isShowMobileMenu]);
+
+  return (
+    <Fragment>
+      {isShowMobileMenu && (
+        <div className="mobileMenuOverlay" onClick={handleCloseMenu}></div>
+      )}
+      <div className={`mobileMenu ${isShowMobileMenu ? 'show' : 'hide'}`}>
         <div className="mobileMenuNavigation">
           <div className="mobileMenuHeader">
             <div className="mobMenuLogo">
@@ -45,7 +65,7 @@ const MobileMenu = forwardRef(
             <ButtonWrapper
               buttonClassName="mobileMenuCloseBtn"
               icon="close"
-              onClick={onClick}
+              onClick={() => dispatch(closeMobileMenu())}
             />
           </div>
           <div className="mobileUserBox">
@@ -55,7 +75,7 @@ const MobileMenu = forwardRef(
               icon="user"
               onClick={() => {
                 console.log('Login');
-                closeMenu();
+                dispatch(toggleMobileMenu());
               }}
             />
 
@@ -73,9 +93,7 @@ const MobileMenu = forwardRef(
             svgWrapperClassName="svgWrapper"
             buttonText="Каталог товарів"
             categories={categories}
-            refProp={categoryMenuRef}
             iconBurger="menu"
-            closeMenu={closeMenu}
           />
           <ButtonWrapper
             buttonClassName="mobileBtnStock"
@@ -86,7 +104,7 @@ const MobileMenu = forwardRef(
           <nav className="mobileNavBar">
             <ul>
               {foterNavLinks.map(({ link, name }) => (
-                <li key={link} onClick={closeMenu}>
+                <li key={link} onClick={() => dispatch(toggleMobileMenu())}>
                   <Link to={link}>{name}</Link>
                 </li>
               ))}
@@ -98,11 +116,9 @@ const MobileMenu = forwardRef(
           Сб-Нд - вихідний
         </p>
       </div>
-    );
-  },
-);
-
-MobileMenu.displayName = 'MobileMenu';
+    </Fragment>
+  );
+};
 
 MobileMenu.propTypes = {
   props: PropTypes.array,

@@ -1,18 +1,16 @@
-import { useState, useRef } from 'react';
+import './Home.scss';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
-import './Home.scss';
+import { BUTTON_LABELS, categories } from '../../constants';
 
 import Banner from './components/Banner/Banner';
 import ButtonWrapper from '../../common/Button/Button';
 import ProductList from '../../common/ProductList/ProductList';
-
-import { BUTTON_LABELS, categories } from '../../constants';
-import CatalogBatton from '../Catalog/components/CatalogBatton/CatalogBatton';
+import CatalogBatton from '../../common/CatalogBatton/CatalogBatton';
 
 const Home = () => {
   const { BUTTON_CATALOG } = BUTTON_LABELS;
-  const categoryMenuRef = useRef(null);
   const products = useSelector((state) => state.products);
 
   const [categoryIndexes, setCategoryIndexes] = useState({});
@@ -31,7 +29,6 @@ const Home = () => {
       {isMobileDevice && (
         <CatalogBatton
           categories={categories}
-          refProp={categoryMenuRef}
           iconBurger="menu"
           buttonText={BUTTON_CATALOG}
           buttonClassName="homeCatalogBtn"

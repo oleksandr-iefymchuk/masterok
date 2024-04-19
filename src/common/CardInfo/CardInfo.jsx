@@ -173,14 +173,27 @@ const CardInfo = () => {
               buttonText={isInBasket ? 'В кошику' : 'До кошика'}
               onClick={() => handleAddToBasket()}
             />
-
-            <ButtonWrapper
-              buttonClassName="favoritesButton"
-              icon={isFavorite ? 'favoritesFilled' : 'favorites'}
-              svgColor="#f05a00"
-              buttonText={isFavorite ? 'В обраному' : 'До обраного'}
-              onClick={handleAddToFavotites}
-            />
+            <div className="favoritesBalanceControls">
+              <ButtonWrapper
+                buttonClassName="balanceButton"
+                icon="balance"
+                onClick={() => console.log('balanceButton')}
+                buttonText={isMobileDevice && 'Порівняти'}
+              />
+              <ButtonWrapper
+                buttonClassName="favoritesButton"
+                icon={isFavorite ? 'favoritesFilled' : 'favorites'}
+                svgColor="#f05a00"
+                buttonText={
+                  isMobileDevice
+                    ? isFavorite
+                      ? 'В обраному'
+                      : 'До обраного'
+                    : ''
+                }
+                onClick={handleAddToFavotites}
+              />
+            </div>
           </div>
         </div>
         <CardInfoDescription

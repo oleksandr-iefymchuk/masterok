@@ -147,13 +147,29 @@
           background-color: #26b663;
         }
 
-        .favoritesButton {
-          margin-left: auto;
-          background-color: transparent;
+        .favoritesBalanceControls {
+          display: flex;
+          flex: 1;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 10px;
+          .favoritesButton {
+            background-color: transparent;
 
-          svg {
-            width: 30px;
-            height: 28px;
+            svg {
+              width: 30px;
+              height: 28px;
+            }
+          }
+
+          .balanceButton {
+            background-color: transparent;
+            color: #000;
+            svg {
+              width: 30px;
+              height: 28px;
+              fill: #000000;
+            }
           }
         }
       }
@@ -180,20 +196,27 @@
             margin: 5px 0;
           }
 
-          .disabledBuyButton,
-          .activeBuyButton {
-            margin-left: auto;
-          }
-
-          .favoritesButton {
-            justify-content: flex-start;
-            font-size: 18px;
-            color: #000;
-            margin-top: 20px;
+          .favoritesBalanceControls {
             width: 100%;
+            flex: none;
+            margin-top: 20px;
 
-            svg {
-              margin-right: 10px;
+            .favoritesButton {
+              width: 50%;
+              font-size: 18px;
+              color: #000;
+
+              svg {
+                margin-right: 10px;
+              }
+            }
+
+            .balanceButton {
+              width: 50%;
+              font-size: 18px;
+              svg {
+                margin-right: 10px;
+              }
             }
           }
         }

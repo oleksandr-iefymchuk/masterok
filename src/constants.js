@@ -186,6 +186,39 @@ export const foterNavLinks = [
   },
 ];
 
+export const messengers = (url) => [
+  {
+    icon: 'whatsapp',
+    link: `https://api.whatsapp.com/send?text=${encodeURIComponent(url)}`,
+  },
+  {
+    icon: 'telegram',
+    link: `https://t.me/share/url?url=${encodeURIComponent(url)}`,
+  },
+  {
+    icon: 'facebook',
+    link: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+      url,
+    )}`,
+  },
+  {
+    icon: 'gmail',
+    link: `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Your%20Subject&body=${encodeURIComponent(
+      url,
+    )}&ui=2&tf=1&pli=1`,
+  },
+  {
+    icon: 'skype',
+    link: `https://web.skype.com/share?url=${encodeURIComponent(url)}`,
+  },
+  {
+    icon: 'twitter',
+    link: `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+      url,
+    )}&text=Check%20this%20out!`,
+  },
+];
+
 export const svgOption = {
   DEFAULT_SIZE: 25,
   DEFAULT_COLOR: '#ffffff',
