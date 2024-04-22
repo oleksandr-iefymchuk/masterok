@@ -1,31 +1,36 @@
+import './CardInfo.scss';
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import Slider from 'react-slick';
-import './CardInfo.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
+import { reviews } from '../../reviews';
 
 import {
   addToBasket,
   addToFavorites,
   removeFromFavorites,
 } from '../../store/user/actionCreators';
-
 import { updateQuantityThunk } from '../../store/thunk';
 
 import ButtonWrapper from '../../common/Button/Button';
 import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
 import CardInfoTitle from './components/CardInfoTitle/CardInfoTitle';
 import CardInfoDescription from './components/CardInfoDescription/CardInfoDescription';
+import { TabControlContext } from '../../contexts/TabControlContext';
 
 const CardInfo = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isMobileDevice = useMediaQuery({ maxWidth: 1024 });
   const navigationBasket = () => navigate('/basket');
+
   const [cardInfoQuantity, setcardInfoQuantity] = useState(1);
+  const [value, setValue] = useState('description');
+
   const products = useSelector((state) => state.products);
   const basketProducts = useSelector((store) => store.user.basketProducts);
   const favorites = useSelector((store) => store.user.favoriteProducts);
@@ -104,104 +109,118 @@ const CardInfo = () => {
   };
 
   return (
-    <div className="cardInfoBlock">
-      <Breadcrumbs />
-      {isMobileDevice && (
-        <CardInfoTitle id={id} title={title} quantity={quantity} />
-      )}
-      <div className="sliderContainer">
-        <Slider {...settings}>
-          {images.map((image, index) => (
-            <div className="card" key={index}>
-              <img src={image} alt={`Product ${index + 1}`} />
-            </div>
-          ))}
-        </Slider>
-      </div>
+    <TabControlContext.Provider value={{ value, setValue }}>
+      <div className="cardInfoWrapper">
+        <Breadcrumbs />
+        {isMobileDevice && (
+          <CardInfoTitle
+            id={id}
+            title={title}
+            quantity={quantity}
+            reviews={reviews}
+          />
+        )}
+        <div className="sliderContainer">
+          <Slider {...settings}>
+            {images.map((image, index) => (
+              <div className="card" key={index}>
+                <img src={image} alt={`Product ${index + 1}`} />
+              </div>
+            ))}
+          </Slider>
+        </div>
 
-      <div className="cardInfo">
-        <div className="cardInfoHeader">
-          {!isMobileDevice && (
-            <CardInfoTitle id={id} title={title} quantity={quantity} />
-          )}
-
-          <div className="quantityBlock">
-            {isMobileDevice && (
-              <span
-                className={
-                  quantity !== 0 ? 'availableProduct' : 'unavailableProduct'
-                }
-              >
-                {quantity !== 0 ? 'В наявності' : 'Немає в наявності'}
-              </span>
+        <div className="cardInfo">
+          <div className="cardInfoHeader">
+            {!isMobileDevice && (
+              <CardInfoTitle
+                id={id}
+                title={title}
+                quantity={quantity}
+                reviews={reviews}
+              />
             )}
-            <p className="cardInfoPrice">{price} грн.</p>
-            <ButtonWrapper
-              buttonClassName={
-                cardInfoQuantity <= 1 || isInBasket
-                  ? 'disabledBtnIncreaseQuantity'
-                  : 'activeBtnIncreaseQuantity'
-              }
-              disabled={cardInfoQuantity <= 1 || isInBasket}
-              onClick={() => handleUpdateQuantity('decrease')}
-              icon="minus"
-            />
-            <p className="quantity">
-              {isInBasket ? isInBasket.quantity : cardInfoQuantity}
-            </p>
-            <ButtonWrapper
-              buttonClassName={
-                cardInfoQuantity >= quantity || isInBasket
-                  ? 'disabledBtnIncreaseQuantity'
-                  : 'activeBtnIncreaseQuantity'
-              }
-              disabled={cardInfoQuantity >= quantity || isInBasket}
-              onClick={() => handleUpdateQuantity('increase')}
-              icon="plus"
-            />
 
-            <ButtonWrapper
-              buttonClassName={`${
-                quantity <= 0 && (!isInBasket || isInBasket.quantity <= 0)
-                  ? 'disabledBuyButton'
-                  : 'activeBuyButton'
-              } ${isInBasket && 'inBasket'}`}
-              disabled={
-                quantity <= 0 && (!isInBasket || isInBasket.quantity <= 0)
-              }
-              icon={isInBasket ? 'check-mark' : 'basket'}
-              buttonText={isInBasket ? 'В кошику' : 'До кошика'}
-              onClick={() => handleAddToBasket()}
-            />
-            <div className="favoritesBalanceControls">
-              <ButtonWrapper
-                buttonClassName="balanceButton"
-                icon="balance"
-                onClick={() => console.log('balanceButton')}
-                buttonText={isMobileDevice && 'Порівняти'}
-              />
-              <ButtonWrapper
-                buttonClassName="favoritesButton"
-                icon={isFavorite ? 'favoritesFilled' : 'favorites'}
-                svgColor="#f05a00"
-                buttonText={
-                  isMobileDevice
-                    ? isFavorite
-                      ? 'В обраному'
-                      : 'До обраного'
-                    : ''
-                }
-                onClick={handleAddToFavotites}
-              />
+            <div className="quantityBlock">
+              {isMobileDevice && (
+                <span
+                  className={
+                    quantity !== 0 ? 'availableProduct' : 'unavailableProduct'
+                  }
+                >
+                  {quantity !== 0 ? 'В наявності' : 'Немає в наявності'}
+                </span>
+              )}
+              <p className="cardInfoPrice">{price} грн.</p>
+              <div className="cardInfoQuantity">
+                <ButtonWrapper
+                  buttonClassName={
+                    cardInfoQuantity <= 1 || isInBasket
+                      ? 'disabledBtnIncreaseQuantity'
+                      : 'activeBtnIncreaseQuantity'
+                  }
+                  disabled={cardInfoQuantity <= 1 || isInBasket}
+                  onClick={() => handleUpdateQuantity('decrease')}
+                  icon="minus"
+                />
+                <p className="quantity">
+                  {isInBasket ? isInBasket.quantity : cardInfoQuantity}
+                </p>
+                <ButtonWrapper
+                  buttonClassName={
+                    cardInfoQuantity >= quantity || isInBasket
+                      ? 'disabledBtnIncreaseQuantity'
+                      : 'activeBtnIncreaseQuantity'
+                  }
+                  disabled={cardInfoQuantity >= quantity || isInBasket}
+                  onClick={() => handleUpdateQuantity('increase')}
+                  icon="plus"
+                />
+
+                <ButtonWrapper
+                  buttonClassName={`${
+                    quantity <= 0 && (!isInBasket || isInBasket.quantity <= 0)
+                      ? 'disabledBuyButton'
+                      : 'activeBuyButton'
+                  } ${isInBasket ? 'inBasket' : ''}`}
+                  disabled={
+                    quantity <= 0 && (!isInBasket || isInBasket.quantity <= 0)
+                  }
+                  icon={isInBasket ? 'check-mark' : 'basket'}
+                  buttonText={isInBasket ? 'В кошику' : 'До кошика'}
+                  onClick={() => handleAddToBasket()}
+                />
+              </div>
+              <div className="favoritesBalanceControls">
+                <ButtonWrapper
+                  buttonClassName="balanceButton"
+                  icon="balance"
+                  onClick={() => console.log('balanceButton')}
+                  buttonText={isMobileDevice && 'Порівняти'}
+                />
+                <ButtonWrapper
+                  buttonClassName="favoritesButton"
+                  icon={isFavorite ? 'favoritesFilled' : 'favorites'}
+                  svgColor="#f05a00"
+                  buttonText={
+                    isMobileDevice
+                      ? isFavorite
+                        ? 'В обраному'
+                        : 'До обраного'
+                      : ''
+                  }
+                  onClick={handleAddToFavotites}
+                />
+              </div>
             </div>
           </div>
+          <CardInfoDescription
+            description={description}
+            param={param}
+          ></CardInfoDescription>
         </div>
-        <CardInfoDescription
-          description={description}
-          param={param}
-        ></CardInfoDescription>
       </div>
-    </div>
+    </TabControlContext.Provider>
   );
 };
 

@@ -1,4 +1,4 @@
-.cardInfoBlock {
+.cardInfoWrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -84,13 +84,6 @@
         flex-wrap: wrap;
         align-items: center;
 
-        .cardInfoPrice {
-          width: 100%;
-          font-size: 30px;
-          font-weight: 500;
-          margin: 20px 0;
-        }
-
         .availableProduct {
           color: green;
         }
@@ -99,52 +92,64 @@
           color: #a2a2a2;
         }
 
-        .activeBtnIncreaseQuantity,
-        .disabledBtnIncreaseQuantity {
-          background-color: transparent;
-          width: 50px;
-          height: 30px;
+        .cardInfoPrice {
+          width: 100%;
+          font-size: 30px;
+          font-weight: 500;
+          margin: 20px 0;
         }
 
-        .activeBtnIncreaseQuantity {
-          svg {
-            fill: rgb(45, 45, 45);
-            stroke: rgb(45, 45, 45);
-            width: 20px;
+        .cardInfoQuantity {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          .activeBtnIncreaseQuantity,
+          .disabledBtnIncreaseQuantity {
+            background-color: transparent;
+            width: 50px;
+            height: 30px;
           }
-        }
 
-        .disabledBtnIncreaseQuantity {
-          svg {
-            fill: rgb(232, 232, 232);
-            stroke: rgb(232, 232, 232);
-            width: 20px;
+          .activeBtnIncreaseQuantity {
+            svg {
+              fill: rgb(45, 45, 45);
+              stroke: rgb(45, 45, 45);
+              width: 20px;
+            }
           }
-          pointer-events: none;
-        }
 
-        .disabledBuyButton,
-        .activeBuyButton {
-          width: 140px;
-          height: 50px;
-          border-radius: 5px;
-          background-color: #008ec8;
-          margin-left: 20px;
-
-          svg {
-            fill: #fff;
-            stroke: #fff;
-            margin-right: 5px;
+          .disabledBtnIncreaseQuantity {
+            svg {
+              fill: rgb(232, 232, 232);
+              stroke: rgb(232, 232, 232);
+              width: 20px;
+            }
+            pointer-events: none;
           }
-        }
 
-        .disabledBuyButton {
-          opacity: 0.3;
-          pointer-events: none;
-        }
+          .disabledBuyButton,
+          .activeBuyButton {
+            width: 140px;
+            height: 50px;
+            border-radius: 5px;
+            background-color: #008ec8;
+            margin-left: 20px;
 
-        .inBasket {
-          background-color: #26b663;
+            svg {
+              fill: #fff;
+              stroke: #fff;
+              margin-right: 5px;
+            }
+          }
+
+          .disabledBuyButton {
+            opacity: 0.3;
+            pointer-events: none;
+          }
+
+          .inBasket {
+            background-color: #26b663;
+          }
         }
 
         .favoritesBalanceControls {
@@ -152,7 +157,7 @@
           flex: 1;
           align-items: center;
           justify-content: flex-end;
-          gap: 10px;
+          gap: 18px;
           .favoritesButton {
             background-color: transparent;
 
@@ -178,7 +183,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .cardInfoBlock {
+  .cardInfoWrapper {
     justify-content: center;
 
     .sliderContainer {
@@ -196,14 +201,23 @@
             margin: 5px 0;
           }
 
+          .cardInfoQuantity {
+            justify-content: center;
+
+            .quantity {
+              font-size: 20px;
+            }
+          }
+
           .favoritesBalanceControls {
             width: 100%;
             flex: none;
             margin-top: 20px;
+            justify-content: center;
 
             .favoritesButton {
-              width: 50%;
-              font-size: 18px;
+              width: 140px;
+              font-size: 16px;
               color: #000;
 
               svg {
@@ -212,8 +226,8 @@
             }
 
             .balanceButton {
-              width: 50%;
-              font-size: 18px;
+              width: 140px;
+              font-size: 16px;
               svg {
                 margin-right: 10px;
               }

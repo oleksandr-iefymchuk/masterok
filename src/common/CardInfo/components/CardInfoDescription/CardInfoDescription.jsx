@@ -10,9 +10,10 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ButtonWrapper from '../../../Button/Button';
+import { useTabContext } from '../../../../contexts/TabControlContext';
 
 const CardInfoDescription = ({ description, param }) => {
-  const [value, setValue] = useState('description');
+  const { value, setValue } = useTabContext();
   const [markdown, setMarkdown] = useState('');
   const [isExpandedDescription, setIsExpandedDescription] = useState(false);
   const [isExpandedCharacteristics, setIsExpandedCharacteristics] =
@@ -38,7 +39,7 @@ const CardInfoDescription = ({ description, param }) => {
             fontSize: '16px',
             borderBottom: '3px solid #fff',
             marginRight: '5px',
-            padding: '5px 10px',
+            padding: '5px',
             '&:hover': {
               background: 'transparent',
               borderBottom: '3px solid #008ec8',
@@ -76,7 +77,7 @@ const CardInfoDescription = ({ description, param }) => {
   }, [description, markdownPath]);
 
   return (
-    <div className="cardInfoDescription">
+    <div className="cardInfoDescription" id="reviews">
       <ThemeProvider theme={styles}>
         <TabContext value={value}>
           <TabList onChange={handleChangeTab} className="customTabList">

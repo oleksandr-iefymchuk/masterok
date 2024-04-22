@@ -1,15 +1,25 @@
+import './CardInfoTitle.scss';
 import { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
-import './CardInfoTitle.scss';
+import Rating from '@mui/material/Rating';
+
 import { messengers } from '../../../../constants';
-
 import ButtonWrapper from '../../../Button/Button';
+import { useTabContext } from '../../../../contexts/TabControlContext';
 
-const CardInfoTitle = ({ id, title, quantity }) => {
+const CardInfoTitle = ({ id, title, quantity, reviews }) => {
   const isMobileDevice = useMediaQuery({ maxWidth: 1024 });
   const [isOpen, setIsOpen] = useState(false);
-  const url = window.location.href;
+  const { setValue } = useTabContext();
+
+  const productReviews = reviews.filter((review) => review.productId === id);
+
+  const calculateAverageRating = (reviews) => {
+    if (reviews.length === 0) return 0;
+    const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
+    return totalRating / reviews.length;
+  };
 
   const togglePopup = () => {
     if (!isOpen) {
@@ -22,6 +32,23 @@ const CardInfoTitle = ({ id, title, quantity }) => {
 
   const openNewTab = (url) => {
     window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
+  const scrollToReviews = () => {
+    const reviewsElement = document.getElementById('reviews');
+    if (reviewsElement) {
+      reviewsElement.scrollIntoView({ behavior: 'smooth' });
+    }
+    setValue('reviews');
+  };
+
+  const getReviewsWordForm = (count) => {
+    const cases = [2, 0, 1, 1, 1, 2];
+    return ['відгук', 'відгуки', 'відгуків'][
+      count % 100 > 4 && count % 100 < 20
+        ? 2
+        : cases[count % 10 < 5 ? count % 10 : 5]
+    ];
   };
 
   return (
@@ -40,7 +67,7 @@ const CardInfoTitle = ({ id, title, quantity }) => {
                   onClick={togglePopup}
                 />
               </div>
-              {messengers(url).map((messenger, index) => (
+              {messengers(window.location.href).map((messenger, index) => (
                 <ButtonWrapper
                   buttonClassName="messengerBtn"
                   icon={messenger.icon}
@@ -63,8 +90,30 @@ const CardInfoTitle = ({ id, title, quantity }) => {
           </p>
         )}
         <p>
-          Код товару: <span>{id}</span>{' '}
+          Код: <span>{id}</span>{' '}
         </p>
+        <div className="reviews">
+          {productReviews.length > 0 ? (
+            <Fragment>
+              <Rating
+                className="rating"
+                value={calculateAverageRating(productReviews)}
+                precision={0.5}
+                readOnly
+              />
+              <p className="linkComment" onClick={scrollToReviews}>
+                {`${productReviews.length} ${getReviewsWordForm(
+                  productReviews.length,
+                )}`}{' '}
+              </p>
+            </Fragment>
+          ) : (
+            <p
+              className="linkComment"
+              onClick={scrollToReviews}
+            >{`Написати відгук`}</p>
+          )}
+        </div>
         <ButtonWrapper
           buttonClassName="shareButton"
           icon="share"
@@ -79,6 +128,7 @@ CardInfoTitle.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   quantity: PropTypes.number.isRequired,
+  reviews: PropTypes.array,
 };
 
 export default CardInfoTitle;
